@@ -21,9 +21,8 @@ public class Account {
     private Double balance;
     @Enumerated(EnumType.STRING)
     private AccountType accountType;
-    @CreationTimestamp
+    @CreationTimestamp // automatitskiy yaratilingandagi vaqtni qo'yib beradi
     private LocalDateTime createdAt;
-    @CreationTimestamp
     private LocalDateTime updatedAt;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "auth_user_id")

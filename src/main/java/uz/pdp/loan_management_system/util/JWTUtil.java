@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class JWTUtil {
     private final CustomUserDetailsService userDetailsService;
-    private final String SECRET_KEY = "secretaesrdgyufsexdrctfvgybhunjdrxfgvqwertyuiiiiopasdfghjklzxcvbnm";
+    private final String SECRET_KEY = "secretaesrdgyufsexdrctfvrxfgvqwertyuiiiiopasdfghjklzxcvbnm";
 
     public String generateToken(String username) {
         Map<String, Object> claims = new HashMap<>();

@@ -52,7 +52,9 @@ public class SecurityConfig {
                                     "/webjars/**").permitAll()
                             .requestMatchers(
                                     "/api/loans/create",
-                                    "/api/loans/update").hasRole("ADMIN")
+                                    "/api/loans/update",
+                                    "/api/accounts/create",
+                                    "/api/accounts/update").hasRole("ADMIN")
                             .anyRequest().authenticated();
                 })
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)

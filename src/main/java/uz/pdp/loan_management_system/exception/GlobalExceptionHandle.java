@@ -4,13 +4,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import uz.pdp.loan_management_system.dto.ErrorDTO;
 import uz.pdp.loan_management_system.dto.ResponseDTO;
 
 import java.util.List;
 
-@RestController
+@RestControllerAdvice
 @RequiredArgsConstructor
 public class GlobalExceptionHandle {
     @ExceptionHandler(MethodArgumentNotValidException.class)

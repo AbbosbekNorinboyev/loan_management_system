@@ -15,5 +15,6 @@ public class LoanRequest {
     private Double loanAmount;
     @NotBlank(message = "status can not be null or empty")
     private String status;
+    @NotBlank(message = "authUserId can not be null or empty")
     private Long authUserId;
 }
