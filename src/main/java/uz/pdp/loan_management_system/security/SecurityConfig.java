@@ -56,7 +56,9 @@ public class SecurityConfig {
                                     "/api/accounts/create",
                                     "/api/accounts/update",
                                     "/api/clients/create",
-                                    "/api/clients/update").hasRole("ADMIN")
+                                    "/api/clients/update",
+                                    "/api/transactions/create",
+                                    "/api/transactions/update").hasRole("ADMIN")
                             .anyRequest().authenticated();
                 })
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
