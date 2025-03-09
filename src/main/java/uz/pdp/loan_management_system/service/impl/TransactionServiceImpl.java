@@ -1,15 +1,16 @@
 package uz.pdp.loan_management_system.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import uz.pdp.loan_management_system.dto.ErrorDTO;
 import uz.pdp.loan_management_system.dto.ResponseDTO;
 import uz.pdp.loan_management_system.entity.Transaction;
-import uz.pdp.loan_management_system.exception.CustomUserNotFoundException;
 import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
-import uz.pdp.loan_management_system.mapper.AccountMapper;
 import uz.pdp.loan_management_system.mapper.TransactionMapper;
+import uz.pdp.loan_management_system.mapper.interfaces.TransactionMapperInterface;
 import uz.pdp.loan_management_system.repository.TransactionRepository;
 import uz.pdp.loan_management_system.request.TransactionRequest;
 import uz.pdp.loan_management_system.response.TransactionResponse;
@@ -23,12 +24,15 @@ import java.util.List;
 public class TransactionServiceImpl implements TransactionService {
     private final TransactionValidation transactionValidation;
     private final TransactionMapper transactionMapper;
+    private final TransactionMapperInterface transactionMapperInterface;
     private final TransactionRepository transactionRepository;
+    private static final Logger logger = LoggerFactory.getLogger(TransactionServiceImpl.class);
 
     @Override
     public ResponseDTO<TransactionResponse> createTransaction(TransactionRequest transactionRequest) {
         List<ErrorDTO> errors = transactionValidation.validate(transactionRequest);
         if (!errors.isEmpty()) {
+            logger.error("Validation error createTransaction");
             return ResponseDTO.<TransactionResponse>builder()
                     .code(HttpStatus.BAD_REQUEST.value())
                     .message("Validation error")
@@ -37,6 +41,7 @@ public class TransactionServiceImpl implements TransactionService {
         }
         Transaction transaction = transactionMapper.toEntity(transactionRequest);
         transactionRepository.save(transaction);
+        logger.info("Transaction successfully saved");
         return ResponseDTO.<TransactionResponse>builder()
                 .code(HttpStatus.OK.value())
                 .message("Transaction successfully saved")
@@ -53,13 +58,14 @@ public class TransactionServiceImpl implements TransactionService {
                 .code(HttpStatus.OK.value())
                 .message("Transaction successfully found")
                 .success(true)
-                .data(transactionMapper.toResponse(transaction))
+                .data(transactionMapperInterface.toTransactionResponse(transaction))
                 .build();
     }
 
     @Override
     public ResponseDTO<List<TransactionResponse>> getAllTransaction() {
         List<Transaction> transactions = transactionRepository.findAll();
+        logger.info("Transaction list successfully found");
         return ResponseDTO.<List<TransactionResponse>>builder()
                 .code(HttpStatus.OK.value())
                 .message("Transaction list successfully saved")

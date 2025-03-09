@@ -1,11 +1,14 @@
 package uz.pdp.loan_management_system.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import uz.pdp.loan_management_system.dto.ErrorDTO;
 import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.mapper.LoanMapper;
+import uz.pdp.loan_management_system.mapper.interfaces.LoanMapperInterface;
 import uz.pdp.loan_management_system.request.LoanRequest;
 import uz.pdp.loan_management_system.dto.ResponseDTO;
 import uz.pdp.loan_management_system.entity.Loan;
@@ -22,12 +25,14 @@ public class LoanServiceImpl implements LoanService {
     private final LoanValidation loanValidation;
     private final LoanRepository loanRepository;
     private final LoanMapper loanMapper;
+    private final LoanMapperInterface loanMapperInterface;
+    private static final Logger logger = LoggerFactory.getLogger(LoanServiceImpl.class);
 
     @Override
     public ResponseDTO<LoanResponse> createLoan(LoanRequest loanRequest) {
         List<ErrorDTO> errors = loanValidation.validate(loanRequest);
-        System.out.println("errors = " + errors);
         if (!errors.isEmpty()) {
+            logger.error("Validation error createLoan");
             return ResponseDTO.<LoanResponse>builder()
                     .code(HttpStatus.BAD_REQUEST.value())
                     .message("Validation error")
@@ -35,6 +40,7 @@ public class LoanServiceImpl implements LoanService {
                     .build();
         }
         Loan loan = loanMapper.toEntity(loanRequest);
+        logger.info("Loan successfully saved");
         System.out.println("loan = " + loan);
         loanRepository.save(loan);
         return ResponseDTO.<LoanResponse>builder()
@@ -53,13 +59,14 @@ public class LoanServiceImpl implements LoanService {
                 .code(HttpStatus.OK.value())
                 .message("Loan successfully found")
                 .success(true)
-                .data(loanMapper.toResponse(loan))
+                .data(loanMapperInterface.toLoanResponse(loan))
                 .build();
     }
 
     @Override
     public ResponseDTO<List<LoanResponse>> getAllLoan() {
         List<Loan> loans = loanRepository.findAll();
+        logger.info("Loan list successfully found");
         return ResponseDTO.<List<LoanResponse>>builder()
                 .code(HttpStatus.OK.value())
                 .message("Loan list successfully found")

@@ -1,6 +1,8 @@
 package uz.pdp.loan_management_system.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -31,6 +33,7 @@ public class AuthUserController {
     private final AuthenticationManager authenticationManager;
     private final CustomUserDetailsService customUserDetails;
     private final JWTUtil jwtUtil;
+    private final Logger logger = LoggerFactory.getLogger(AuthUserController.class);
 
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterCreateDTO registerCreateDTO) {
@@ -43,6 +46,7 @@ public class AuthUserController {
         authUser.setPassword(passwordEncoder.encode(registerCreateDTO.getPassword()));
         authUser.setRole(Role.USER);
         authUserRepository.save(authUser);
+        logger.info("AuthUser successfully register");
         return ResponseEntity.ok("AuthUser successfully register");
     }
 
@@ -58,6 +62,7 @@ public class AuthUserController {
         );
         UserDetails userDetails = customUserDetails.loadUserByUsername(loginCreateDTO.getUsername());
         String jwtGenerateToken = jwtUtil.generateToken(userDetails.getUsername());
+        logger.info("AuthUser successfully login");
         return ResponseEntity.ok(jwtGenerateToken); // login qilgandan keyin token qaytadi
     }
 }

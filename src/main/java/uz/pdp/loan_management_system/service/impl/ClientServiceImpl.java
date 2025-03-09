@@ -1,6 +1,8 @@
 package uz.pdp.loan_management_system.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import uz.pdp.loan_management_system.dto.ErrorDTO;
@@ -8,6 +10,7 @@ import uz.pdp.loan_management_system.dto.ResponseDTO;
 import uz.pdp.loan_management_system.entity.Client;
 import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.mapper.ClientMapper;
+import uz.pdp.loan_management_system.mapper.interfaces.ClientMapperInterface;
 import uz.pdp.loan_management_system.repository.ClientRepository;
 import uz.pdp.loan_management_system.request.ClientRequest;
 import uz.pdp.loan_management_system.response.ClientResponse;
@@ -22,11 +25,14 @@ public class ClientServiceImpl implements ClientService {
     private final ClientValidation clientValidation;
     private final ClientRepository clientRepository;
     private final ClientMapper clientMapper;
+    private final ClientMapperInterface clientMapperInterface;
+    private static final Logger logger = LoggerFactory.getLogger(ClientServiceImpl.class);
 
     @Override
     public ResponseDTO<ClientResponse> createClient(ClientRequest clientRequest) {
         List<ErrorDTO> errors = clientValidation.validate(clientRequest);
         if (!errors.isEmpty()) {
+            logger.error("Validation error createClient");
             return ResponseDTO.<ClientResponse>builder()
                     .code(HttpStatus.BAD_REQUEST.value())
                     .message("Validation error")
@@ -35,6 +41,7 @@ public class ClientServiceImpl implements ClientService {
         }
         Client client = clientMapper.toEntity(clientRequest);
         clientRepository.save(client);
+        logger.info("Client successfully saved");
         return ResponseDTO.<ClientResponse>builder()
                 .code(HttpStatus.OK.value())
                 .message("Client successfully saved")
@@ -51,13 +58,14 @@ public class ClientServiceImpl implements ClientService {
                 .code(HttpStatus.OK.value())
                 .message("Client successfully found")
                 .success(true)
-                .data(clientMapper.toResponse(client))
+                .data(clientMapperInterface.toClientResponse(client))
                 .build();
     }
 
     @Override
     public ResponseDTO<List<ClientResponse>> getAllClient() {
         List<Client> clients = clientRepository.findAll();
+        logger.info("Client list successfully found");
         return ResponseDTO.<List<ClientResponse>>builder()
                 .code(HttpStatus.OK.value())
                 .message("Client list successfully found")
