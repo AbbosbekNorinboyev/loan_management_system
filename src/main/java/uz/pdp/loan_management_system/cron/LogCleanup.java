@@ -13,7 +13,7 @@ import java.nio.file.StandardOpenOption;
 @Component
 public class LogCleanup {
     private static final Logger logger = LoggerFactory.getLogger(LogCleanup.class);
-    private static final String LOG_FILE_PATH = "C:\\Abbos\\Spring Project\\Test Projects\\LoanManagementSystem\\logs\\LoanManSystem.log"; // Log fayl manzili
+    private static final String LOG_FILE_PATH = "C:\\Abbos\\Spring Project\\Test Projects\\LoanManagementSystem\\logs\\LoanManagementSystem.log"; // Log fayl manzili
 
     @Scheduled(cron = "* * * */7 * *") // har 7 kunfda tozalaydi
     public void clearLogFile() {
