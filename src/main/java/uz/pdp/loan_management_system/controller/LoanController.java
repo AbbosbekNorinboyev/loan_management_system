@@ -18,8 +18,8 @@ public class LoanController {
         return loanService.createLoan(loanRequest);
     }
 
-    @GetMapping("/{loanId}")
-    public Response getLoan(@PathVariable Long loanId) {
+    @GetMapping("/get")
+    public Response getLoan(@RequestParam("loanId") Long loanId) {
         return loanService.getLoan(loanId);
     }
 
@@ -28,8 +28,9 @@ public class LoanController {
         return loanService.getAllLoan();
     }
 
-    @PutMapping("/update/{loanId}")
-    public Response updateLoan(@RequestBody LoanRequest loanRequest, @PathVariable Long loanId) {
+    @PutMapping("/update")
+    public Response updateLoan(@RequestParam LoanRequest loanRequest,
+                               @RequestParam("loanId") Long loanId) {
         return loanService.updateLoan(loanRequest, loanId);
     }
 }

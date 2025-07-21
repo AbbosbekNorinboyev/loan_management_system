@@ -18,8 +18,8 @@ public class AccountController {
         return accountService.createAccount(accountRequest);
     }
 
-    @GetMapping("/{accountId}")
-    public Response getAccount(@PathVariable Long accountId) {
+    @GetMapping("/get")
+    public Response getAccount(@RequestParam("accountId") Long accountId) {
         return accountService.getAccount(accountId);
     }
 
@@ -28,9 +28,9 @@ public class AccountController {
         return accountService.getAllAccount();
     }
 
-    @PutMapping("/update/{accountId}")
+    @PutMapping("/update")
     public Response updateAccount(@RequestBody AccountRequest accountRequest,
-                                  @PathVariable Long accountId) {
+                                  @RequestParam("accountId") Long accountId) {
         return accountService.updateAccount(accountRequest, accountId);
     }
 }

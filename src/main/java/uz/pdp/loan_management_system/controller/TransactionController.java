@@ -18,8 +18,8 @@ public class TransactionController {
         return transactionService.createTransaction(transactionRequest);
     }
 
-    @GetMapping("/{transactionId}")
-    public Response getTransaction(@PathVariable Long transactionId) {
+    @GetMapping("/get")
+    public Response getTransaction(@RequestParam("transactionId") Long transactionId) {
         return transactionService.getTransaction(transactionId);
     }
 
@@ -28,9 +28,9 @@ public class TransactionController {
         return transactionService.getAllTransaction();
     }
 
-    @PutMapping("/update/{transactionId}")
+    @PutMapping("/update")
     public Response updateTransaction(@RequestBody TransactionRequest transactionRequest,
-                                      @PathVariable Long transactionId) {
+                                      @RequestParam("transactionId") Long transactionId) {
         return transactionService.updateTransaction(transactionRequest, transactionId);
     }
 }
