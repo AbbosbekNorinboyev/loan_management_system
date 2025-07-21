@@ -18,8 +18,12 @@ public class Response<T,V> implements Serializable {
     @JsonProperty("success")
     @Schema(description = "status", type = "boolean", defaultValue = "false")
     private boolean success;
+    @JsonProperty("message")
+    private String message;
     @JsonProperty("data")
     private T data;
     @JsonProperty("error")
     private V error;
+    @JsonProperty("code")
+    private Integer code;
 }

@@ -3,6 +3,7 @@ package uz.pdp.loan_management_system.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import uz.pdp.loan_management_system.dto.Response;
 import uz.pdp.loan_management_system.dto.ResponseDTO;
 import uz.pdp.loan_management_system.dto.request.ClientRequest;
 import uz.pdp.loan_management_system.dto.response.ClientResponse;
@@ -17,23 +18,23 @@ public class ClientController {
     private final ClientServiceImpl clientService;
 
     @PostMapping("/create")
-    public ResponseDTO<ClientResponse> createClient(@Valid @RequestBody ClientRequest clientRequest) {
+    public Response createClient(@Valid @RequestBody ClientRequest clientRequest) {
         return clientService.createClient(clientRequest);
     }
 
     @GetMapping("/{clientId}")
-    public ResponseDTO<ClientResponse> getClient(@PathVariable Long clientId) {
+    public Response getClient(@PathVariable Long clientId) {
         return clientService.getClient(clientId);
     }
 
     @GetMapping
-    public ResponseDTO<List<ClientResponse>> getAllClient() {
+    public Response getAllClient() {
         return clientService.getAllClient();
     }
 
     @PutMapping("/update/{clientId}")
-    public ResponseDTO<Void> updateClient(@RequestBody ClientRequest clientRequest,
-                                          @PathVariable Long clientId) {
+    public Response updateClient(@RequestBody ClientRequest clientRequest,
+                                 @PathVariable Long clientId) {
         return clientService.updateClient(clientRequest, clientId);
     }
 }

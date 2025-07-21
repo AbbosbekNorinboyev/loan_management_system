@@ -3,37 +3,34 @@ package uz.pdp.loan_management_system.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import uz.pdp.loan_management_system.dto.ResponseDTO;
+import uz.pdp.loan_management_system.dto.Response;
 import uz.pdp.loan_management_system.dto.request.AccountRequest;
-import uz.pdp.loan_management_system.dto.response.AccountResponse;
-import uz.pdp.loan_management_system.service.impl.AccountServiceImpl;
-
-import java.util.List;
+import uz.pdp.loan_management_system.service.AccountService;
 
 @RestController
 @RequestMapping("/api/accounts")
 @RequiredArgsConstructor
 public class AccountController {
-    private final AccountServiceImpl accountService;
+    private final AccountService accountService;
 
     @PostMapping("/create")
-    public ResponseDTO<AccountResponse> createAccount(@Valid @RequestBody AccountRequest accountRequest) {
+    public Response createAccount(@Valid @RequestBody AccountRequest accountRequest) {
         return accountService.createAccount(accountRequest);
     }
 
     @GetMapping("/{accountId}")
-    public ResponseDTO<AccountResponse> getAccount(@PathVariable Long accountId) {
+    public Response getAccount(@PathVariable Long accountId) {
         return accountService.getAccount(accountId);
     }
 
     @GetMapping
-    public ResponseDTO<List<AccountResponse>> getAllAccount() {
+    public Response getAllAccount() {
         return accountService.getAllAccount();
     }
 
     @PutMapping("/update/{accountId}")
-    public ResponseDTO<Void> updateAccount(@RequestBody AccountRequest accountRequest,
-                                           @PathVariable Long accountId) {
+    public Response updateAccount(@RequestBody AccountRequest accountRequest,
+                                  @PathVariable Long accountId) {
         return accountService.updateAccount(accountRequest, accountId);
     }
 }

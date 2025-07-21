@@ -3,37 +3,34 @@ package uz.pdp.loan_management_system.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import uz.pdp.loan_management_system.dto.ResponseDTO;
+import uz.pdp.loan_management_system.dto.Response;
 import uz.pdp.loan_management_system.dto.request.TransactionRequest;
-import uz.pdp.loan_management_system.dto.response.TransactionResponse;
-import uz.pdp.loan_management_system.service.impl.TransactionServiceImpl;
-
-import java.util.List;
+import uz.pdp.loan_management_system.service.TransactionService;
 
 @RestController
 @RequestMapping("/api/transactions")
 @RequiredArgsConstructor
 public class TransactionController {
-    private final TransactionServiceImpl transactionService;
+    private final TransactionService transactionService;
 
     @PostMapping("/create")
-    public ResponseDTO<TransactionResponse> createTransaction(@Valid @RequestBody TransactionRequest transactionRequest) {
+    public Response createTransaction(@Valid @RequestBody TransactionRequest transactionRequest) {
         return transactionService.createTransaction(transactionRequest);
     }
 
     @GetMapping("/{transactionId}")
-    public ResponseDTO<TransactionResponse> getTransaction(@PathVariable Long transactionId) {
+    public Response getTransaction(@PathVariable Long transactionId) {
         return transactionService.getTransaction(transactionId);
     }
 
     @GetMapping
-    public ResponseDTO<List<TransactionResponse>> getAllTransaction() {
+    public Response getAllTransaction() {
         return transactionService.getAllTransaction();
     }
 
     @PutMapping("/update/{transactionId}")
-    public ResponseDTO<Void> updateTransaction(@RequestBody TransactionRequest transactionRequest,
-                                               @PathVariable Long transactionId) {
+    public Response updateTransaction(@RequestBody TransactionRequest transactionRequest,
+                                      @PathVariable Long transactionId) {
         return transactionService.updateTransaction(transactionRequest, transactionId);
     }
 }

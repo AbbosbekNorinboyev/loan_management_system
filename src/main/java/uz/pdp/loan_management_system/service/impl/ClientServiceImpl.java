@@ -5,15 +5,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import uz.pdp.loan_management_system.dto.ErrorDTO;
-import uz.pdp.loan_management_system.dto.ResponseDTO;
+import uz.pdp.loan_management_system.dto.Response;
+import uz.pdp.loan_management_system.dto.request.ClientRequest;
 import uz.pdp.loan_management_system.entity.Client;
 import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.mapper.ClientMapper;
 import uz.pdp.loan_management_system.mapper.interfaces.ClientMapperInterface;
 import uz.pdp.loan_management_system.repository.ClientRepository;
-import uz.pdp.loan_management_system.dto.request.ClientRequest;
-import uz.pdp.loan_management_system.dto.response.ClientResponse;
 import uz.pdp.loan_management_system.service.ClientService;
 
 import java.util.List;
@@ -27,11 +25,11 @@ public class ClientServiceImpl implements ClientService {
     private static final Logger logger = LoggerFactory.getLogger(ClientServiceImpl.class);
 
     @Override
-    public ResponseDTO<ClientResponse> createClient(ClientRequest clientRequest) {
+    public Response createClient(ClientRequest clientRequest) {
         Client client = clientMapper.toEntity(clientRequest);
         clientRepository.save(client);
         logger.info("Client successfully saved");
-        return ResponseDTO.<ClientResponse>builder()
+        return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Client successfully saved")
                 .success(true)
@@ -40,10 +38,10 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public ResponseDTO<ClientResponse> getClient(Long clientId) {
+    public Response getClient(Long clientId) {
         Client client = clientRepository.findById(clientId)
                 .orElseThrow(() -> new ResourceNotFoundException("Client not found: " + clientId));
-        return ResponseDTO.<ClientResponse>builder()
+        return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Client successfully found")
                 .success(true)
@@ -52,10 +50,10 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public ResponseDTO<List<ClientResponse>> getAllClient() {
+    public Response getAllClient() {
         List<Client> clients = clientRepository.findAll();
         logger.info("Client list successfully found");
-        return ResponseDTO.<List<ClientResponse>>builder()
+        return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Client list successfully found")
                 .success(true)
@@ -64,14 +62,14 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public ResponseDTO<Void> updateClient(ClientRequest clientRequest, Long clientId) {
+    public Response updateClient(ClientRequest clientRequest, Long clientId) {
         Client client = clientRepository.findById(clientId)
                 .orElseThrow(() -> new ResourceNotFoundException("Client not found: " + clientId));
         client.setName(clientRequest.getName());
         client.setEmail(clientRequest.getEmail());
         client.setPhoneNumber(clientRequest.getPhoneNumber());
         clientRepository.save(client);
-        return ResponseDTO.<Void>builder()
+        return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Client successfully updated")
                 .success(true)

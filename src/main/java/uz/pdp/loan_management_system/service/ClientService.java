@@ -1,17 +1,14 @@
 package uz.pdp.loan_management_system.service;
 
-import uz.pdp.loan_management_system.dto.ResponseDTO;
+import uz.pdp.loan_management_system.dto.Response;
 import uz.pdp.loan_management_system.dto.request.ClientRequest;
-import uz.pdp.loan_management_system.dto.response.ClientResponse;
-
-import java.util.List;
 
 public interface ClientService {
-    ResponseDTO<ClientResponse> createClient(ClientRequest clientRequest);
+    Response createClient(ClientRequest clientRequest);
 
-    ResponseDTO<ClientResponse> getClient(Long clientId);
+    Response getClient(Long clientId);
 
-    ResponseDTO<List<ClientResponse>> getAllClient();
+    Response getAllClient();
 
-    ResponseDTO<Void> updateClient(ClientRequest clientRequest, Long clientId);
+    Response updateClient(ClientRequest clientRequest, Long clientId);
 }
