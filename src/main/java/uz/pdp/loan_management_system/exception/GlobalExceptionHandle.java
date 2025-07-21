@@ -52,13 +52,19 @@ public class GlobalExceptionHandle {
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
 
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseDTO<Void> handleResourceNotFoundException(ResourceNotFoundException resourceNotFoundException) {
-        return ResponseDTO.<Void>builder()
-                .code(HttpStatus.NOT_FOUND.value()) // not found
-                .message(resourceNotFoundException.getMessage())
-                .success(false)
+    @ExceptionHandler(CustomException.class)
+    public ResponseEntity<?> handleGeneralCustomExceptions(CustomException customException) {
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .code(customException.getCode())
+                .message(customException.getMessage())
                 .build();
+
+        var response = Response.builder()
+                .success(false)
+                .error(errorResponse)
+                .data(Empty.builder().build())
+                .build();
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @ExceptionHandler(Exception.class)

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import uz.pdp.loan_management_system.dto.Response;
 import uz.pdp.loan_management_system.dto.request.ClientRequest;
 import uz.pdp.loan_management_system.entity.Client;
+import uz.pdp.loan_management_system.exception.CustomException;
 import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.mapper.ClientMapper;
 import uz.pdp.loan_management_system.mapper.interfaces.ClientMapperInterface;
@@ -40,7 +41,7 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public Response getClient(Long clientId) {
         Client client = clientRepository.findById(clientId)
-                .orElseThrow(() -> new ResourceNotFoundException("Client not found: " + clientId));
+                .orElseThrow(() -> new CustomException(HttpStatus.NOT_FOUND, "Client not found: " + clientId));
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Client successfully found")
@@ -64,7 +65,7 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public Response updateClient(ClientRequest clientRequest, Long clientId) {
         Client client = clientRepository.findById(clientId)
-                .orElseThrow(() -> new ResourceNotFoundException("Client not found: " + clientId));
+                .orElseThrow(() -> new CustomException(HttpStatus.NOT_FOUND, "Client not found: " + clientId));
         client.setName(clientRequest.getName());
         client.setEmail(clientRequest.getEmail());
         client.setPhoneNumber(clientRequest.getPhoneNumber());
