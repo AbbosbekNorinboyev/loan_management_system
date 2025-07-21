@@ -15,24 +15,24 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GlobalExceptionHandle {
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseDTO<Void> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
-        List<ErrorDTO> errors = e.getBindingResult().getFieldErrors()
-                .stream()
-                .map(fieldError -> {
-                    String field = fieldError.getField();
-                    String defaultMessage = fieldError.getDefaultMessage();
-                    String rejectedValue = String.valueOf(fieldError.getRejectedValue());
-                    return new ErrorDTO(
-                            field,
-                            String.format("defaultMessage: '%s', rejectionValue: '%s'", defaultMessage, rejectedValue)
-                    );
-                }).toList();
-        return ResponseDTO.<Void>builder()
+    public ResponseEntity<?> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
+        List<String> errors = e.getBindingResult().getFieldErrors()
+                .stream().map(fieldError -> fieldError.getField() + " " + fieldError.getDefaultMessage()).toList();
+        StringBuilder stringBuilder = new StringBuilder();
+        errors.forEach(s -> stringBuilder.append(s).append(System.lineSeparator()));
+        String errorMessage = !stringBuilder.toString().isEmpty() ? stringBuilder.toString() : e.getMessage();
+
+        ErrorResponse validationError = ErrorResponse.builder()
                 .code(HttpStatus.BAD_REQUEST.value())  // Bad request kodi
-                .message("Validation error")
-                .success(false)
-                .errors(errors)
+                .message(errorMessage)
                 .build();
+
+        var response = Response.builder()
+                .success(false)
+                .error(validationError)
+                .data(Empty.builder().build())
+                .build();
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @ExceptionHandler(InvalidFormatException.class)
