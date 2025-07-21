@@ -1,4 +1,4 @@
-package uz.pdp.loan_management_system.response;
+package uz.pdp.loan_management_system.dto.response;
 
 import lombok.*;
 import uz.pdp.loan_management_system.enums.AccountType;

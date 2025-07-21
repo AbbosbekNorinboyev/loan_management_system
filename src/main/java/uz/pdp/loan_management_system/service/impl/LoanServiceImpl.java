@@ -9,11 +9,11 @@ import uz.pdp.loan_management_system.dto.ErrorDTO;
 import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.mapper.LoanMapper;
 import uz.pdp.loan_management_system.mapper.interfaces.LoanMapperInterface;
-import uz.pdp.loan_management_system.request.LoanRequest;
+import uz.pdp.loan_management_system.dto.request.LoanRequest;
 import uz.pdp.loan_management_system.dto.ResponseDTO;
 import uz.pdp.loan_management_system.entity.Loan;
 import uz.pdp.loan_management_system.repository.LoanRepository;
-import uz.pdp.loan_management_system.response.LoanResponse;
+import uz.pdp.loan_management_system.dto.response.LoanResponse;
 import uz.pdp.loan_management_system.service.LoanService;
 import uz.pdp.loan_management_system.validation.LoanValidation;
 

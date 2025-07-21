@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import uz.pdp.loan_management_system.security.CustomUserDetailsService;
+import uz.pdp.loan_management_system.config.CustomUserDetailsService;
 
 import java.util.Date;
 import java.util.HashMap;

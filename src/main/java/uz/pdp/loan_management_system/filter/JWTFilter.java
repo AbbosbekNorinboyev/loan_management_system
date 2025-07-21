@@ -11,7 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import uz.pdp.loan_management_system.security.CustomUserDetailsService;
+import uz.pdp.loan_management_system.config.CustomUserDetailsService;
 import uz.pdp.loan_management_system.util.JWTUtil;
 
 import java.io.IOException;

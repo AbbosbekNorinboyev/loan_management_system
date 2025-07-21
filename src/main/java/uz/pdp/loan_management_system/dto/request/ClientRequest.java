@@ -1,4 +1,4 @@
-package uz.pdp.loan_management_system.response;
+package uz.pdp.loan_management_system.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -12,11 +12,15 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-public class ClientResponse {
+public class ClientRequest {
+    @NotBlank(message = "name can not be null or empty")
     private String name;
+    @NotBlank(message = "email can not be null or empty")
     private String email;
+    @NotBlank(message = "phoneNumber can not be null or empty")
     private String phoneNumber;
     private Long authUserId;
+    @CreationTimestamp
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

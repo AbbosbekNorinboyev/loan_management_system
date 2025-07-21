@@ -18,7 +18,7 @@ import uz.pdp.loan_management_system.entity.AuthUser;
 import uz.pdp.loan_management_system.enums.Role;
 import uz.pdp.loan_management_system.exception.CustomUserNotFoundException;
 import uz.pdp.loan_management_system.repository.AuthUserRepository;
-import uz.pdp.loan_management_system.security.CustomUserDetailsService;
+import uz.pdp.loan_management_system.config.CustomUserDetailsService;
 import uz.pdp.loan_management_system.util.JWTUtil;
 
 import java.util.Optional;

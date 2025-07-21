@@ -3,8 +3,8 @@ package uz.pdp.loan_management_system.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import uz.pdp.loan_management_system.dto.ResponseDTO;
-import uz.pdp.loan_management_system.request.ClientRequest;
-import uz.pdp.loan_management_system.response.ClientResponse;
+import uz.pdp.loan_management_system.dto.request.ClientRequest;
+import uz.pdp.loan_management_system.dto.response.ClientResponse;
 import uz.pdp.loan_management_system.service.impl.ClientServiceImpl;
 
 import java.util.List;

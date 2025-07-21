@@ -6,8 +6,8 @@ import uz.pdp.loan_management_system.entity.AuthUser;
 import uz.pdp.loan_management_system.entity.Client;
 import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.repository.AuthUserRepository;
-import uz.pdp.loan_management_system.request.ClientRequest;
-import uz.pdp.loan_management_system.response.ClientResponse;
+import uz.pdp.loan_management_system.dto.request.ClientRequest;
+import uz.pdp.loan_management_system.dto.response.ClientResponse;
 
 @Component
 @RequiredArgsConstructor

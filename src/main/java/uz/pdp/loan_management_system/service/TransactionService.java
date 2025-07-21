@@ -1,9 +1,8 @@
 package uz.pdp.loan_management_system.service;
 
 import uz.pdp.loan_management_system.dto.ResponseDTO;
-import uz.pdp.loan_management_system.entity.Transaction;
-import uz.pdp.loan_management_system.request.TransactionRequest;
-import uz.pdp.loan_management_system.response.TransactionResponse;
+import uz.pdp.loan_management_system.dto.request.TransactionRequest;
+import uz.pdp.loan_management_system.dto.response.TransactionResponse;
 
 import java.util.List;
 

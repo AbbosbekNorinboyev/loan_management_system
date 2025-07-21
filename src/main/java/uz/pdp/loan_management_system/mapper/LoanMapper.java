@@ -6,8 +6,8 @@ import uz.pdp.loan_management_system.entity.AuthUser;
 import uz.pdp.loan_management_system.entity.Loan;
 import uz.pdp.loan_management_system.exception.CustomUserNotFoundException;
 import uz.pdp.loan_management_system.repository.AuthUserRepository;
-import uz.pdp.loan_management_system.request.LoanRequest;
-import uz.pdp.loan_management_system.response.LoanResponse;
+import uz.pdp.loan_management_system.dto.request.LoanRequest;
+import uz.pdp.loan_management_system.dto.response.LoanResponse;
 
 @Component
 @RequiredArgsConstructor

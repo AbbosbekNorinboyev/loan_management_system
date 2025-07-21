@@ -1,13 +1,10 @@
 package uz.pdp.loan_management_system.controller;
 
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import uz.pdp.loan_management_system.dto.ResponseDTO;
-import uz.pdp.loan_management_system.request.LoanRequest;
-import uz.pdp.loan_management_system.request.TransactionRequest;
-import uz.pdp.loan_management_system.response.LoanResponse;
-import uz.pdp.loan_management_system.response.TransactionResponse;
+import uz.pdp.loan_management_system.dto.request.TransactionRequest;
+import uz.pdp.loan_management_system.dto.response.TransactionResponse;
 import uz.pdp.loan_management_system.service.impl.TransactionServiceImpl;
 
 import java.util.List;

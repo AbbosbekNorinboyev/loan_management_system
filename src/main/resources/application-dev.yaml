@@ -1,0 +1,22 @@
+server:
+  port: 1195
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/project?currentSchema=loan_management_system
+    username: postgres
+    password: 2210
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql=true
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true

@@ -1,4 +1,4 @@
-package uz.pdp.loan_management_system.request;
+package uz.pdp.loan_management_system.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;

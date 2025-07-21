@@ -1,4 +1,4 @@
-package uz.pdp.loan_management_system.security;
+package uz.pdp.loan_management_system.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

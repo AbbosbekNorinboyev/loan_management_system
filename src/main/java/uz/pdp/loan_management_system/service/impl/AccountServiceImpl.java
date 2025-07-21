@@ -12,8 +12,8 @@ import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.mapper.AccountMapper;
 import uz.pdp.loan_management_system.mapper.interfaces.AccountMapperInterface;
 import uz.pdp.loan_management_system.repository.AccountRepository;
-import uz.pdp.loan_management_system.request.AccountRequest;
-import uz.pdp.loan_management_system.response.AccountResponse;
+import uz.pdp.loan_management_system.dto.request.AccountRequest;
+import uz.pdp.loan_management_system.dto.response.AccountResponse;
 import uz.pdp.loan_management_system.service.AccountService;
 import uz.pdp.loan_management_system.validation.AccountValidation;
 
