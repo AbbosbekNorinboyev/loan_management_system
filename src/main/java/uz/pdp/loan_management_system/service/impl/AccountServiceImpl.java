@@ -15,14 +15,12 @@ import uz.pdp.loan_management_system.repository.AccountRepository;
 import uz.pdp.loan_management_system.dto.request.AccountRequest;
 import uz.pdp.loan_management_system.dto.response.AccountResponse;
 import uz.pdp.loan_management_system.service.AccountService;
-import uz.pdp.loan_management_system.validation.AccountValidation;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
-    private final AccountValidation accountValidation;
     private final AccountMapper accountMapper;
     private final AccountMapperInterface accountMapperInterface;
     private final AccountRepository accountRepository;
@@ -30,15 +28,6 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public ResponseDTO<AccountResponse> createAccount(AccountRequest accountRequest) {
-        List<ErrorDTO> errors = accountValidation.validate(accountRequest);
-        if (!errors.isEmpty()) {
-            logger.error("Validation error createAccount");
-            return ResponseDTO.<AccountResponse>builder()
-                    .code(HttpStatus.BAD_REQUEST.value())
-                    .message("Validation error")
-                    .success(false)
-                    .build();
-        }
         Account account = accountMapper.toEntity(accountRequest);
         accountRepository.save(account);
         logger.info("Account successfully saved");

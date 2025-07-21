@@ -1,10 +1,7 @@
 package uz.pdp.loan_management_system.dto.request;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import uz.pdp.loan_management_system.entity.AuthUser;
 import uz.pdp.loan_management_system.enums.AccountType;
 
 import java.time.LocalDateTime;

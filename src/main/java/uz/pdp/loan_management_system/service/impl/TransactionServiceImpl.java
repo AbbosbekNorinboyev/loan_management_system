@@ -7,22 +7,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import uz.pdp.loan_management_system.dto.ErrorDTO;
 import uz.pdp.loan_management_system.dto.ResponseDTO;
+import uz.pdp.loan_management_system.dto.request.TransactionRequest;
+import uz.pdp.loan_management_system.dto.response.TransactionResponse;
 import uz.pdp.loan_management_system.entity.Transaction;
 import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.mapper.TransactionMapper;
 import uz.pdp.loan_management_system.mapper.interfaces.TransactionMapperInterface;
 import uz.pdp.loan_management_system.repository.TransactionRepository;
-import uz.pdp.loan_management_system.dto.request.TransactionRequest;
-import uz.pdp.loan_management_system.dto.response.TransactionResponse;
 import uz.pdp.loan_management_system.service.TransactionService;
-import uz.pdp.loan_management_system.validation.TransactionValidation;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class TransactionServiceImpl implements TransactionService {
-    private final TransactionValidation transactionValidation;
     private final TransactionMapper transactionMapper;
     private final TransactionMapperInterface transactionMapperInterface;
     private final TransactionRepository transactionRepository;
@@ -30,15 +28,6 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public ResponseDTO<TransactionResponse> createTransaction(TransactionRequest transactionRequest) {
-        List<ErrorDTO> errors = transactionValidation.validate(transactionRequest);
-        if (!errors.isEmpty()) {
-            logger.error("Validation error createTransaction");
-            return ResponseDTO.<TransactionResponse>builder()
-                    .code(HttpStatus.BAD_REQUEST.value())
-                    .message("Validation error")
-                    .success(false)
-                    .build();
-        }
         Transaction transaction = transactionMapper.toEntity(transactionRequest);
         transactionRepository.save(transaction);
         logger.info("Transaction successfully saved");

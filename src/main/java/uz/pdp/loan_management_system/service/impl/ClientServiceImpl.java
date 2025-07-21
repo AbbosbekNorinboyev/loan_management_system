@@ -15,14 +15,12 @@ import uz.pdp.loan_management_system.repository.ClientRepository;
 import uz.pdp.loan_management_system.dto.request.ClientRequest;
 import uz.pdp.loan_management_system.dto.response.ClientResponse;
 import uz.pdp.loan_management_system.service.ClientService;
-import uz.pdp.loan_management_system.validation.ClientValidation;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class ClientServiceImpl implements ClientService {
-    private final ClientValidation clientValidation;
     private final ClientRepository clientRepository;
     private final ClientMapper clientMapper;
     private final ClientMapperInterface clientMapperInterface;
@@ -30,15 +28,6 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public ResponseDTO<ClientResponse> createClient(ClientRequest clientRequest) {
-        List<ErrorDTO> errors = clientValidation.validate(clientRequest);
-        if (!errors.isEmpty()) {
-            logger.error("Validation error createClient");
-            return ResponseDTO.<ClientResponse>builder()
-                    .code(HttpStatus.BAD_REQUEST.value())
-                    .message("Validation error")
-                    .success(false)
-                    .build();
-        }
         Client client = clientMapper.toEntity(clientRequest);
         clientRepository.save(client);
         logger.info("Client successfully saved");

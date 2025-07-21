@@ -1,5 +1,6 @@
 package uz.pdp.loan_management_system.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import uz.pdp.loan_management_system.dto.ResponseDTO;
@@ -16,7 +17,7 @@ public class AccountController {
     private final AccountServiceImpl accountService;
 
     @PostMapping("/create")
-    public ResponseDTO<AccountResponse> createAccount(@RequestBody AccountRequest accountRequest) {
+    public ResponseDTO<AccountResponse> createAccount(@Valid @RequestBody AccountRequest accountRequest) {
         return accountService.createAccount(accountRequest);
     }
 

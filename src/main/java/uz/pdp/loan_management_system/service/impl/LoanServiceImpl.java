@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import uz.pdp.loan_management_system.dto.ErrorDTO;
 import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.mapper.LoanMapper;
 import uz.pdp.loan_management_system.mapper.interfaces.LoanMapperInterface;
@@ -15,14 +14,12 @@ import uz.pdp.loan_management_system.entity.Loan;
 import uz.pdp.loan_management_system.repository.LoanRepository;
 import uz.pdp.loan_management_system.dto.response.LoanResponse;
 import uz.pdp.loan_management_system.service.LoanService;
-import uz.pdp.loan_management_system.validation.LoanValidation;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class LoanServiceImpl implements LoanService {
-    private final LoanValidation loanValidation;
     private final LoanRepository loanRepository;
     private final LoanMapper loanMapper;
     private final LoanMapperInterface loanMapperInterface;
@@ -30,18 +27,8 @@ public class LoanServiceImpl implements LoanService {
 
     @Override
     public ResponseDTO<LoanResponse> createLoan(LoanRequest loanRequest) {
-        List<ErrorDTO> errors = loanValidation.validate(loanRequest);
-        if (!errors.isEmpty()) {
-            logger.error("Validation error createLoan");
-            return ResponseDTO.<LoanResponse>builder()
-                    .code(HttpStatus.BAD_REQUEST.value())
-                    .message("Validation error")
-                    .success(false)
-                    .build();
-        }
         Loan loan = loanMapper.toEntity(loanRequest);
         logger.info("Loan successfully saved");
-        System.out.println("loan = " + loan);
         loanRepository.save(loan);
         return ResponseDTO.<LoanResponse>builder()
                 .code(HttpStatus.OK.value())

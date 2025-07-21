@@ -357,3 +357,93 @@ Caused by: java.lang.IllegalStateException: Ambiguous @ExceptionHandler method m
 2025-07-21 15:19:45 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-07-21 15:19:45 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-07-21 15:19:45 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-21 15:25:29 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-21 15:25:29 [main] INFO  u.p.l.LoanManagementSystemApplication - Starting LoanManagementSystemApplication using Java 17.0.6 with PID 7060 (C:\Abbos\Spring Project\Test Projects\LoanManagementSystem\target\classes started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
+2025-07-21 15:25:29 [main] INFO  u.p.l.LoanManagementSystemApplication - The following 1 profile is active: "dev"
+2025-07-21 15:25:30 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-21 15:25:30 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 86 ms. Found 5 JPA repository interfaces.
+2025-07-21 15:25:31 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1195 (http)
+2025-07-21 15:25:31 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1195"]
+2025-07-21 15:25:31 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-21 15:25:31 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-21 15:25:31 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-21 15:25:31 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1909 ms
+2025-07-21 15:25:31 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-21 15:25:31 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-21 15:25:31 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-21 15:25:31 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-21 15:25:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-21 15:25:32 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@340fc1aa
+2025-07-21 15:25:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-21 15:25:32 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-21 15:25:33 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-21 15:25:34 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-21 15:25:34 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-07-21 15:25:34 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-21 15:25:35 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1195"]
+2025-07-21 15:25:35 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1195 (http) with context path '/'
+2025-07-21 15:25:35 [main] INFO  u.p.l.LoanManagementSystemApplication - Started LoanManagementSystemApplication in 6.645 seconds (process running for 7.664)
+2025-07-21 15:25:53 [http-nio-1195-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-21 15:25:53 [http-nio-1195-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-21 15:25:53 [http-nio-1195-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2025-07-21 15:25:54 [http-nio-1195-exec-6] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 930 ms
+2025-07-21 15:26:11 [http-nio-1195-exec-5] INFO  u.p.l.controller.AuthUserController - AuthUser successfully login
+2025-07-21 15:26:29 [http-nio-1195-exec-8] INFO  u.p.l.s.impl.AccountServiceImpl - Account list successfully found
+2025-07-21 15:26:40 [http-nio-1195-exec-6] INFO  u.p.l.s.impl.TransactionServiceImpl - Transaction list successfully found
+2025-07-21 15:26:48 [http-nio-1195-exec-1] INFO  u.p.l.service.impl.LoanServiceImpl - Loan list successfully found
+2025-07-21 15:26:54 [http-nio-1195-exec-10] INFO  u.p.l.service.impl.ClientServiceImpl - Client list successfully found
+2025-07-21 15:28:40 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-21 15:28:40 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-21 15:28:40 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-21 15:28:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-21 15:28:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-21 15:28:46 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-21 15:28:46 [main] INFO  u.p.l.LoanManagementSystemApplication - Starting LoanManagementSystemApplication using Java 17.0.6 with PID 14520 (C:\Abbos\Spring Project\Test Projects\LoanManagementSystem\target\classes started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
+2025-07-21 15:28:46 [main] INFO  u.p.l.LoanManagementSystemApplication - The following 1 profile is active: "dev"
+2025-07-21 15:28:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-21 15:28:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 81 ms. Found 5 JPA repository interfaces.
+2025-07-21 15:28:47 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1195 (http)
+2025-07-21 15:28:47 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1195"]
+2025-07-21 15:28:47 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-21 15:28:47 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-07-21 15:28:48 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-21 15:28:48 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1730 ms
+2025-07-21 15:28:48 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-21 15:28:48 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-07-21 15:28:48 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-21 15:28:48 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-21 15:28:48 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-07-21 15:28:48 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@144440f5
+2025-07-21 15:28:48 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-07-21 15:28:48 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-21 15:28:50 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-21 15:28:50 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-21 15:28:51 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-07-21 15:28:51 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-21 15:28:52 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1195"]
+2025-07-21 15:28:52 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1195 (http) with context path '/'
+2025-07-21 15:28:52 [main] INFO  u.p.l.LoanManagementSystemApplication - Started LoanManagementSystemApplication in 6.367 seconds (process running for 7.255)
+2025-07-21 15:28:58 [http-nio-1195-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-21 15:28:58 [http-nio-1195-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-21 15:28:58 [http-nio-1195-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-21 15:29:02 [http-nio-1195-exec-10] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 413 ms
+2025-07-21 15:29:30 [http-nio-1195-exec-9] INFO  u.p.l.controller.AuthUserController - AuthUser successfully login
+2025-07-21 15:32:36 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-21 15:32:36 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-07-21 15:32:36 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-21 15:32:36 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-21 15:32:36 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

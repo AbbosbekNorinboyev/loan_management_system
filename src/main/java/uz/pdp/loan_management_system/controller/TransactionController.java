@@ -1,5 +1,6 @@
 package uz.pdp.loan_management_system.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import uz.pdp.loan_management_system.dto.ResponseDTO;
@@ -16,7 +17,7 @@ public class TransactionController {
     private final TransactionServiceImpl transactionService;
 
     @PostMapping("/create")
-    public ResponseDTO<TransactionResponse> createTransaction(@RequestBody TransactionRequest transactionRequest) {
+    public ResponseDTO<TransactionResponse> createTransaction(@Valid @RequestBody TransactionRequest transactionRequest) {
         return transactionService.createTransaction(transactionRequest);
     }
 
