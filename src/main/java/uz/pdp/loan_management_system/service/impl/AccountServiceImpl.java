@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import uz.pdp.loan_management_system.dto.Response;
 import uz.pdp.loan_management_system.dto.request.AccountRequest;
 import uz.pdp.loan_management_system.entity.Account;
-import uz.pdp.loan_management_system.exception.CustomException;
 import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.mapper.AccountMapper;
 import uz.pdp.loan_management_system.mapper.interfaces.AccountMapperInterface;
@@ -41,7 +40,7 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Response getAccount(Long accountId) {
         Account account = accountRepository.findById(accountId)
-                .orElseThrow(() -> new CustomException(HttpStatus.NOT_FOUND, "Account not found: " + accountId));
+                .orElseThrow(() -> new ResourceNotFoundException("Account not found: " + accountId));
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Account successfully found")
@@ -65,7 +64,7 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Response updateAccount(AccountRequest accountRequest, Long accountId) {
         Account account = accountRepository.findById(accountId)
-                .orElseThrow(() -> new CustomException(HttpStatus.NOT_FOUND, "Account not found: " + accountId));
+                .orElseThrow(() -> new ResourceNotFoundException("Account not found: " + accountId));
         account.setBalance(accountRequest.getBalance());
         account.setAccountType(accountRequest.getAccountType());
         account.setUpdatedAt(accountRequest.getUpdatedAt());

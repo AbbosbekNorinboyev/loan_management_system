@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import uz.pdp.loan_management_system.dto.Response;
 import uz.pdp.loan_management_system.dto.request.LoanRequest;
 import uz.pdp.loan_management_system.entity.Loan;
-import uz.pdp.loan_management_system.exception.CustomException;
 import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.mapper.LoanMapper;
 import uz.pdp.loan_management_system.mapper.interfaces.LoanMapperInterface;
@@ -41,7 +40,7 @@ public class LoanServiceImpl implements LoanService {
     @Override
     public Response getLoan(Long loanId) {
         Loan loan = loanRepository.findById(loanId)
-                .orElseThrow(() -> new CustomException(HttpStatus.NOT_FOUND, "Loan not found: " + loanId));
+                .orElseThrow(() -> new ResourceNotFoundException("Loan not found: " + loanId));
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Loan successfully found")
@@ -65,7 +64,7 @@ public class LoanServiceImpl implements LoanService {
     @Override
     public Response updateLoan(LoanRequest loanRequest, Long loanId) {
         Loan loan = loanRepository.findById(loanId)
-                .orElseThrow(() -> new CustomException(HttpStatus.NOT_FOUND, "Loan not found: " + loanId));
+                .orElseThrow(() -> new ResourceNotFoundException("Loan not found: " + loanId));
         loan.setLoanName(loanRequest.getLoanName());
         loan.setLoanAmount(loanRequest.getLoanAmount());
         loan.setStatus(loanRequest.getStatus());

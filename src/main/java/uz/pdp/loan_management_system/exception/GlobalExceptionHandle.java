@@ -67,6 +67,15 @@ public class GlobalExceptionHandle {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @ExceptionHandler(value = {ResourceNotFoundException.class})
+    public Response resourceNotFoundException(ResourceNotFoundException e) {
+        return Response.builder()
+                .code(HttpStatus.NOT_FOUND.value())
+                .message(e.getMessage())
+                .build();
+    }
+
+
     @ExceptionHandler(Exception.class)
     public ResponseDTO<Void> handleException(Exception exception) {
         return ResponseDTO.<Void>builder()
