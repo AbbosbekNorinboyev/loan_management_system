@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import uz.pdp.loan_management_system.entity.AuthUser;
 import uz.pdp.loan_management_system.entity.Loan;
-import uz.pdp.loan_management_system.exception.CustomUserNotFoundException;
+import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.repository.AuthUserRepository;
 import uz.pdp.loan_management_system.dto.request.LoanRequest;
 import uz.pdp.loan_management_system.dto.response.LoanResponse;
@@ -17,7 +17,7 @@ public class LoanMapper {
 
     public Loan toEntity(LoanRequest loanRequest) {
         AuthUser authUser = authUserRepository.findById(loanRequest.getAuthUserId())
-                .orElseThrow(() -> new CustomUserNotFoundException("AuthUser not found: " + loanRequest.getAuthUserId()));
+                .orElseThrow(() -> new ResourceNotFoundException("AuthUser not found: " + loanRequest.getAuthUserId()));
         Loan loan = new Loan();
         loan.setLoanName(loanRequest.getLoanName());
         loan.setLoanAmount(loanRequest.getLoanAmount());

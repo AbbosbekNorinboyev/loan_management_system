@@ -1,12 +1,13 @@
 package uz.pdp.loan_management_system.exception;
 
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import uz.pdp.loan_management_system.dto.ErrorDTO;
-import uz.pdp.loan_management_system.dto.ResponseDTO;
+import uz.pdp.loan_management_system.dto.*;
 
 import java.util.List;
 
@@ -34,6 +35,23 @@ public class GlobalExceptionHandle {
                 .build();
     }
 
+    @ExceptionHandler(InvalidFormatException.class)
+    public ResponseEntity<Object> handleInvalidFormatException(InvalidFormatException ex) {
+        // Handle the InvalidFormatException here
+        String errorMessage = "Invalid format for field " + ex.getPath().get(0).getFieldName();
+        var error = ErrorResponse.builder()
+                .code(HttpStatus.BAD_REQUEST.value())
+                .message(errorMessage)
+                .build();
+
+        var responseData = Response.builder()
+                .success(false)
+                .error(error)
+                .data(Empty.builder().build())
+                .build();
+        return new ResponseEntity<>(responseData, HttpStatus.OK);
+    }
+
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseDTO<Void> handleResourceNotFoundException(ResourceNotFoundException resourceNotFoundException) {
         return ResponseDTO.<Void>builder()
@@ -48,15 +66,6 @@ public class GlobalExceptionHandle {
         return ResponseDTO.<Void>builder()
                 .code(HttpStatus.INTERNAL_SERVER_ERROR.value()) // Internal Server Error
                 .message("Something wrong -> " + exception.getMessage())
-                .success(false)
-                .build();
-    }
-
-    @ExceptionHandler(CustomUserNotFoundException.class)
-    public ResponseDTO<Void> handleUserNotFoundException(CustomUserNotFoundException customUserNotFoundException) {
-        return ResponseDTO.<Void>builder()
-                .code(HttpStatus.NOT_FOUND.value()) // user not found
-                .message(customUserNotFoundException.getMessage())
                 .success(false)
                 .build();
     }

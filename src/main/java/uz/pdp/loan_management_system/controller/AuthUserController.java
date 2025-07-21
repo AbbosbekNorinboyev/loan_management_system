@@ -16,7 +16,7 @@ import uz.pdp.loan_management_system.dto.LoginCreateDTO;
 import uz.pdp.loan_management_system.dto.RegisterCreateDTO;
 import uz.pdp.loan_management_system.entity.AuthUser;
 import uz.pdp.loan_management_system.enums.Role;
-import uz.pdp.loan_management_system.exception.CustomUserNotFoundException;
+import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.repository.AuthUserRepository;
 import uz.pdp.loan_management_system.config.CustomUserDetailsService;
 import uz.pdp.loan_management_system.util.JWTUtil;
@@ -53,7 +53,7 @@ public class AuthUserController {
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginCreateDTO loginCreateDTO) {
         AuthUser authUser = authUserRepository.findByUsername(loginCreateDTO.getUsername())
-                .orElseThrow(() -> new CustomUserNotFoundException("Auth User not found by username: " + loginCreateDTO.getUsername()));
+                .orElseThrow(() -> new ResourceNotFoundException("Auth User not found by username: " + loginCreateDTO.getUsername()));
         if (authUser.getUsername() == null) {
             return ResponseEntity.ok().body("Username not found");
         }
