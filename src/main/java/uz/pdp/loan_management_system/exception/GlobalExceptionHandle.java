@@ -77,11 +77,16 @@ public class GlobalExceptionHandle {
 
 
     @ExceptionHandler(Exception.class)
-    public ResponseDTO<Void> handleException(Exception exception) {
-        return ResponseDTO.<Void>builder()
-                .code(HttpStatus.INTERNAL_SERVER_ERROR.value()) // Internal Server Error
-                .message("Something wrong -> " + exception.getMessage())
-                .success(false)
+    public ResponseEntity<?> handleException(Exception exception) {
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .code(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                .message(exception.getMessage())
                 .build();
+        var response = Response.builder()
+                .success(false)
+                .error(errorResponse)
+                .data(Empty.builder().build())
+                .build();
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
