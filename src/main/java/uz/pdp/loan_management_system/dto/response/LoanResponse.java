@@ -9,6 +9,7 @@ import lombok.*;
 @Setter
 @ToString
 public class LoanResponse {
+    private Long id;
     private String loanName;
     private Double loanAmount;
     private String status;

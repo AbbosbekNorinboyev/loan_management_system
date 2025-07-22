@@ -2,12 +2,17 @@ package uz.pdp.loan_management_system.mapper;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import uz.pdp.loan_management_system.dto.response.TransactionResponse;
 import uz.pdp.loan_management_system.entity.AuthUser;
 import uz.pdp.loan_management_system.entity.Loan;
+import uz.pdp.loan_management_system.entity.Transaction;
 import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.repository.AuthUserRepository;
 import uz.pdp.loan_management_system.dto.request.LoanRequest;
 import uz.pdp.loan_management_system.dto.response.LoanResponse;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -28,10 +33,18 @@ public class LoanMapper {
 
     public LoanResponse toResponse(Loan loan) {
         return LoanResponse.builder()
+                .id(loan.getId())
                 .loanName(loan.getLoanName())
                 .loanAmount(loan.getLoanAmount())
                 .status(loan.getStatus())
                 .authUserId(loan.getAuthUser().getId())
                 .build();
+    }
+
+    public List<LoanResponse> dtoList(List<Loan> list) {
+        if (list != null && !list.isEmpty()) {
+            return list.stream().map(this::toResponse).toList();
+        }
+        return new ArrayList<>();
     }
 }

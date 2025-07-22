@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 public class ClientResponse {
+    private Long id;
     private String name;
     private String email;
     private String phoneNumber;

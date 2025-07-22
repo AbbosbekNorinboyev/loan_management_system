@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 public class TransactionResponse {
+    private Long id;
     private TransactionType transactionType;
     private Double amount;
     private Long accountId;

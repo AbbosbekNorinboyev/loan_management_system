@@ -74,4 +74,15 @@ public class TransactionServiceImpl implements TransactionService {
                 .success(true)
                 .build();
     }
+
+    @Override
+    public Response getTransactionByAccountId(Long accountId) {
+        List<Transaction> allByAccountId = transactionRepository.findAllByAccountId(accountId);
+        return Response.builder()
+                .code(HttpStatus.OK.value())
+                .message("Transaction successfully found")
+                .success(true)
+                .data(transactionMapper.dtoList(allByAccountId))
+                .build();
+    }
 }

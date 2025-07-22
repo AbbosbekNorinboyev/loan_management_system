@@ -7,8 +7,9 @@ public interface TransactionService {
     Response createTransaction(TransactionRequest transactionRequest);
 
     Response getTransaction(Long transactionId);
-
     Response getAllTransaction();
 
     Response updateTransaction(TransactionRequest transactionRequest, Long transactionId);
+
+    Response getTransactionByAccountId(Long accountId);
 }

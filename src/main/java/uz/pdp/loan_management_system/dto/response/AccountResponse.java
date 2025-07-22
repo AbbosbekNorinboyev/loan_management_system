@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 public class AccountResponse {
+    private Long id;
     private Double balance;
     private AccountType accountType;
     private LocalDateTime createdAt;

@@ -33,4 +33,9 @@ public class TransactionController {
                                       @RequestParam("transactionId") Long transactionId) {
         return transactionService.updateTransaction(transactionRequest, transactionId);
     }
+
+    @GetMapping("/getTransactionByAccountId")
+    public Response getTransactionByAccountId(@RequestParam("/accountId") Long accountId) {
+        return transactionService.getTransactionByAccountId(accountId);
+    }
 }

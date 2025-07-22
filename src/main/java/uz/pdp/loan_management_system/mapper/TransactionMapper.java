@@ -9,6 +9,9 @@ import uz.pdp.loan_management_system.repository.AccountRepository;
 import uz.pdp.loan_management_system.dto.request.TransactionRequest;
 import uz.pdp.loan_management_system.dto.response.TransactionResponse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 @RequiredArgsConstructor
 public class TransactionMapper {
@@ -28,10 +31,18 @@ public class TransactionMapper {
 
     public TransactionResponse toResponse(Transaction transaction) {
         return TransactionResponse.builder()
+                .id(transaction.getId())
                 .transactionType(transaction.getTransactionType())
                 .amount(transaction.getAmount())
                 .accountId(transaction.getAccount().getId())
                 .createdAt(transaction.getCreatedAt())
                 .build();
+    }
+
+    public List<TransactionResponse> dtoList(List<Transaction> list) {
+        if (list != null && !list.isEmpty()) {
+            return list.stream().map(this::toResponse).toList();
+        }
+        return new ArrayList<>();
     }
 }
