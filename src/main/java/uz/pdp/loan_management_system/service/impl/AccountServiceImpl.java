@@ -5,9 +5,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import uz.pdp.loan_management_system.dto.LoanDto;
 import uz.pdp.loan_management_system.dto.Response;
 import uz.pdp.loan_management_system.dto.request.AccountRequest;
 import uz.pdp.loan_management_system.entity.Account;
+import uz.pdp.loan_management_system.enums.AccountType;
 import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.mapper.AccountMapper;
 import uz.pdp.loan_management_system.mapper.interfaces.AccountMapperInterface;
@@ -73,6 +75,25 @@ public class AccountServiceImpl implements AccountService {
                 .code(HttpStatus.OK.value())
                 .message("Account successfully updated")
                 .success(true)
+                .build();
+    }
+
+    @Override
+    public Response getAccountsGroupedByTypeStats(AccountType accountType) {
+        String accountTypeString = accountType != null ? accountType.name() : null;
+        List<Object[]> rawResults = accountRepository.findAccountByAccountType(accountTypeString);
+        System.out.println("rawResults = " + rawResults);
+        List<LoanDto> loanDtoList = rawResults.stream()
+                .map(row -> new LoanDto(
+                        row[0] != null ? row[0].toString() : null,
+                        (int) (row[1] != null ? ((Number) row[1]).longValue() : 0L),  // COUNT(*)
+                        row[2] != null ? ((Number) row[2]).doubleValue() : 0.0 // SUM(balance)
+                )).toList();
+        return Response.builder()
+                .code(HttpStatus.OK.value())
+                .message("Account successfully found")
+                .success(true)
+                .data(loanDtoList)
                 .build();
     }
 }

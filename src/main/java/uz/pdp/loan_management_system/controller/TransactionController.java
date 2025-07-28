@@ -8,13 +8,13 @@ import uz.pdp.loan_management_system.dto.request.TransactionRequest;
 import uz.pdp.loan_management_system.service.TransactionService;
 
 @RestController
-@RequestMapping("/api/transactions")
+@RequestMapping("/api/v1/transactions")
 @RequiredArgsConstructor
 public class TransactionController {
     private final TransactionService transactionService;
 
     @PostMapping("/create")
-    public Response createTransaction(@Valid @RequestBody TransactionRequest transactionRequest) {
+    public Response createTransaction(@RequestBody TransactionRequest transactionRequest) {
         return transactionService.createTransaction(transactionRequest);
     }
 

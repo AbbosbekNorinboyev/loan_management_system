@@ -8,13 +8,13 @@ import uz.pdp.loan_management_system.dto.request.LoanRequest;
 import uz.pdp.loan_management_system.service.LoanService;
 
 @RestController
-@RequestMapping("/api/loans")
+@RequestMapping("/api/v1/loans")
 @RequiredArgsConstructor
 public class LoanController {
     private final LoanService loanService;
 
     @PostMapping("/create")
-    public Response createLoan(@Valid @RequestBody LoanRequest loanRequest) {
+    public Response createLoan(@RequestBody LoanRequest loanRequest) {
         return loanService.createLoan(loanRequest);
     }
 

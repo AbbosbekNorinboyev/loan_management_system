@@ -2,6 +2,7 @@ package uz.pdp.loan_management_system.mapper;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import uz.pdp.loan_management_system.dto.LoanDto;
 import uz.pdp.loan_management_system.dto.response.TransactionResponse;
 import uz.pdp.loan_management_system.entity.Account;
 import uz.pdp.loan_management_system.entity.AuthUser;

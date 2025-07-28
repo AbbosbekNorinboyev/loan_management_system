@@ -2,6 +2,7 @@ package uz.pdp.loan_management_system.service;
 
 import uz.pdp.loan_management_system.dto.Response;
 import uz.pdp.loan_management_system.dto.request.AccountRequest;
+import uz.pdp.loan_management_system.enums.AccountType;
 
 public interface AccountService {
     Response createAccount(AccountRequest accountRequest);
@@ -11,4 +12,6 @@ public interface AccountService {
     Response getAllAccount();
 
     Response updateAccount(AccountRequest accountRequest, Long accountId);
+
+    Response getAccountsGroupedByTypeStats(AccountType accountType);
 }

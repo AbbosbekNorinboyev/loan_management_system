@@ -8,13 +8,13 @@ import uz.pdp.loan_management_system.dto.request.ClientRequest;
 import uz.pdp.loan_management_system.service.ClientService;
 
 @RestController
-@RequestMapping("/api/clients")
+@RequestMapping("/api/v1/clients")
 @RequiredArgsConstructor
 public class ClientController {
     private final ClientService clientService;
 
     @PostMapping("/create")
-    public Response createClient(@Valid @RequestBody ClientRequest clientRequest) {
+    public Response createClient(@RequestBody ClientRequest clientRequest) {
         return clientService.createClient(clientRequest);
     }
 

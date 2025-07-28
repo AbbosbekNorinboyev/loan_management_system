@@ -2,14 +2,12 @@ package uz.pdp.loan_management_system.mapper;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import uz.pdp.loan_management_system.dto.response.TransactionResponse;
-import uz.pdp.loan_management_system.entity.AuthUser;
-import uz.pdp.loan_management_system.entity.Loan;
-import uz.pdp.loan_management_system.entity.Transaction;
-import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
-import uz.pdp.loan_management_system.repository.AuthUserRepository;
 import uz.pdp.loan_management_system.dto.request.LoanRequest;
 import uz.pdp.loan_management_system.dto.response.LoanResponse;
+import uz.pdp.loan_management_system.entity.AuthUser;
+import uz.pdp.loan_management_system.entity.Loan;
+import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
+import uz.pdp.loan_management_system.repository.AuthUserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
