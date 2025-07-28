@@ -1,6 +1,5 @@
 package uz.pdp.loan_management_system.controller;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import uz.pdp.loan_management_system.dto.Response;

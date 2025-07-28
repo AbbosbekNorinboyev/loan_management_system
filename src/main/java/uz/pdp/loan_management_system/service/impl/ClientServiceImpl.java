@@ -45,7 +45,7 @@ public class ClientServiceImpl implements ClientService {
                 .code(HttpStatus.OK.value())
                 .message("Client successfully found")
                 .success(true)
-                .data(clientMapperInterface.toClientResponse(client))
+                .data(clientMapper.toResponse(client))
                 .build();
     }
 
@@ -73,6 +73,17 @@ public class ClientServiceImpl implements ClientService {
                 .code(HttpStatus.OK.value())
                 .message("Client successfully updated")
                 .success(true)
+                .build();
+    }
+
+    @Override
+    public Response getClientByPhoneNumber(String phoneNumber) {
+        Client client = clientRepository.findByPhoneNumber(phoneNumber);
+        return Response.builder()
+                .code(HttpStatus.OK.value())
+                .message("Client successfully found by phone number")
+                .success(true)
+                .data(clientMapper.toResponse(client))
                 .build();
     }
 }

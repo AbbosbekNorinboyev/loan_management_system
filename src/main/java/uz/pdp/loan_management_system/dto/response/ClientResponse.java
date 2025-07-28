@@ -1,8 +1,6 @@
 package uz.pdp.loan_management_system.dto.response;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 

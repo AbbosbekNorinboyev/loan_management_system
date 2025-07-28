@@ -1,6 +1,5 @@
 package uz.pdp.loan_management_system.controller;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import uz.pdp.loan_management_system.dto.Response;
@@ -32,5 +31,10 @@ public class ClientController {
     public Response updateClient(@RequestParam("clientId") ClientRequest clientRequest,
                                  @PathVariable Long clientId) {
         return clientService.updateClient(clientRequest, clientId);
+    }
+
+    @GetMapping("/getClientByPhoneNumber")
+    public Response getClientByPhoneNumber(@RequestParam("phoneNumber") String phoneNumber) {
+        return clientService.getClientByPhoneNumber(phoneNumber);
     }
 }

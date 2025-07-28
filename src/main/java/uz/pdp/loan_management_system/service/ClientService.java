@@ -11,4 +11,6 @@ public interface ClientService {
     Response getAllClient();
 
     Response updateClient(ClientRequest clientRequest, Long clientId);
+
+    Response getClientByPhoneNumber(String phoneNumber);
 }
