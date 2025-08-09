@@ -23,7 +23,7 @@ public class AccountController {
         return accountService.getAccount(accountId);
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public Response getAllAccount() {
         return accountService.getAllAccount();
     }

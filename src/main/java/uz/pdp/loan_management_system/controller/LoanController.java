@@ -22,7 +22,7 @@ public class LoanController {
         return loanService.getLoan(loanId);
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public Response getAllLoan() {
         return loanService.getAllLoan();
     }

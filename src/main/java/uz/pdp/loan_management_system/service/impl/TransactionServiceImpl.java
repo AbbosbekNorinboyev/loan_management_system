@@ -57,7 +57,7 @@ public class TransactionServiceImpl implements TransactionService {
                 .code(HttpStatus.OK.value())
                 .message("Transaction list successfully saved")
                 .success(true)
-                .data(transactions.stream().map(transactionMapper::toResponse).toList())
+                .data(transactionMapper.dtoList(transactions))
                 .build();
     }
 
@@ -65,8 +65,7 @@ public class TransactionServiceImpl implements TransactionService {
     public Response updateTransaction(TransactionRequest transactionRequest, Long transactionId) {
         Transaction transaction = transactionRepository.findById(transactionId)
                 .orElseThrow(() -> new ResourceNotFoundException("Transaction not found: " + transactionId));
-        transaction.setAmount(transactionRequest.getAmount());
-        transaction.setTransactionType(transactionRequest.getTransactionType());
+        transactionMapper.update(transaction, transactionRequest);
         transactionRepository.save(transaction);
         return Response.builder()
                 .code(HttpStatus.OK.value())

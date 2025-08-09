@@ -15,7 +15,6 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class ClientMapper {
-
     private final AuthUserRepository authUserRepository;
 
     public Client toEntity(ClientRequest clientRequest) {
@@ -48,5 +47,20 @@ public class ClientMapper {
             return list.stream().map(this::toResponse).toList();
         }
         return new ArrayList<>();
+    }
+
+    public void update(Client entity, ClientRequest clientRequest) {
+        if (clientRequest == null) {
+            return;
+        }
+        if (clientRequest.getName() != null && !clientRequest.getName().trim().isEmpty()) {
+            entity.setName(clientRequest.getName());
+        }
+        if (clientRequest.getEmail() != null && !clientRequest.getEmail().trim().isEmpty()) {
+            entity.setEmail(clientRequest.getEmail());
+        }
+        if (clientRequest.getPhoneNumber() != null && !clientRequest.getPhoneNumber().trim().isEmpty()) {
+            entity.setPhoneNumber(clientRequest.getPhoneNumber());
+        }
     }
 }

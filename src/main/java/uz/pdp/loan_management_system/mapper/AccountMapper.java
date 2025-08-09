@@ -15,7 +15,6 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class AccountMapper {
-
     private final AuthUserRepository authUserRepository;
 
     public Account toEntity(AccountRequest accountRequest) {
@@ -46,5 +45,17 @@ public class AccountMapper {
             return list.stream().map(this::toResponse).toList();
         }
         return new ArrayList<>();
+    }
+
+    public void update(Account entity, AccountRequest request) {
+        if (request == null) {
+            return;
+        }
+        if (entity.getBalance() != null) {
+            entity.setBalance(request.getBalance());
+        }
+        if (entity.getAccountType() != null) {
+            entity.setAccountType(request.getAccountType());
+        }
     }
 }

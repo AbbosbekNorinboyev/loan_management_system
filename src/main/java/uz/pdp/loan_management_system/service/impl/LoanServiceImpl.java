@@ -57,7 +57,7 @@ public class LoanServiceImpl implements LoanService {
                 .code(HttpStatus.OK.value())
                 .message("Loan list successfully found")
                 .success(true)
-                .data(loans.stream().map(loanMapper::toResponse).toList())
+                .data(loanMapper.dtoList(loans))
                 .build();
     }
 
@@ -65,9 +65,7 @@ public class LoanServiceImpl implements LoanService {
     public Response updateLoan(LoanRequest loanRequest, Long loanId) {
         Loan loan = loanRepository.findById(loanId)
                 .orElseThrow(() -> new ResourceNotFoundException("Loan not found: " + loanId));
-        loan.setLoanName(loanRequest.getLoanName());
-        loan.setLoanAmount(loanRequest.getLoanAmount());
-        loan.setStatus(loanRequest.getStatus());
+        loanMapper.update(loan, loanRequest);
         loanRepository.save(loan);
         return Response.builder()
                 .code(HttpStatus.OK.value())

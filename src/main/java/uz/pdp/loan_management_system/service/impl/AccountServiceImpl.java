@@ -59,7 +59,7 @@ public class AccountServiceImpl implements AccountService {
                 .code(HttpStatus.OK.value())
                 .message("Account list successfully saved")
                 .success(true)
-                .data(accounts.stream().map(accountMapper::toResponse).toList())
+                .data(accountMapper.dtoList(accounts))
                 .build();
     }
 
@@ -67,8 +67,7 @@ public class AccountServiceImpl implements AccountService {
     public Response updateAccount(AccountRequest accountRequest, Long accountId) {
         Account account = accountRepository.findById(accountId)
                 .orElseThrow(() -> new ResourceNotFoundException("Account not found: " + accountId));
-        account.setBalance(accountRequest.getBalance());
-        account.setAccountType(accountRequest.getAccountType());
+        accountMapper.update(account, accountRequest);
         account.setUpdatedAt(accountRequest.getUpdatedAt());
         accountRepository.save(account);
         return Response.builder()

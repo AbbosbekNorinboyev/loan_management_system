@@ -2,12 +2,12 @@ package uz.pdp.loan_management_system.mapper;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import uz.pdp.loan_management_system.dto.request.TransactionRequest;
+import uz.pdp.loan_management_system.dto.response.TransactionResponse;
 import uz.pdp.loan_management_system.entity.Account;
 import uz.pdp.loan_management_system.entity.Transaction;
 import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
 import uz.pdp.loan_management_system.repository.AccountRepository;
-import uz.pdp.loan_management_system.dto.request.TransactionRequest;
-import uz.pdp.loan_management_system.dto.response.TransactionResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,6 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class TransactionMapper {
-
     private final AccountRepository accountRepository;
 
     public Transaction toEntity(TransactionRequest transactionRequest) {
@@ -44,5 +43,17 @@ public class TransactionMapper {
             return list.stream().map(this::toResponse).toList();
         }
         return new ArrayList<>();
+    }
+
+    public void update(Transaction entity, TransactionRequest request) {
+        if (request == null) {
+            return;
+        }
+        if (request.getAmount() != null) {
+            entity.setAmount(request.getAmount());
+        }
+        if (request.getTransactionType() != null) {
+            entity.setTransactionType(request.getTransactionType());
+        }
     }
 }

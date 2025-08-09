@@ -22,14 +22,14 @@ public class ClientController {
         return clientService.getClient(clientId);
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public Response getAllClient() {
         return clientService.getAllClient();
     }
 
     @PutMapping("/update")
     public Response updateClient(@RequestParam("clientId") ClientRequest clientRequest,
-                                 @PathVariable Long clientId) {
+                                 @RequestParam("clientId") Long clientId) {
         return clientService.updateClient(clientRequest, clientId);
     }
 

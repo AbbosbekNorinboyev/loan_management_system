@@ -15,7 +15,6 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class LoanMapper {
-
     private final AuthUserRepository authUserRepository;
 
     public Loan toEntity(LoanRequest loanRequest) {
@@ -44,5 +43,20 @@ public class LoanMapper {
             return list.stream().map(this::toResponse).toList();
         }
         return new ArrayList<>();
+    }
+
+    public void update(Loan entity, LoanRequest request) {
+        if (request == null) {
+            return;
+        }
+        if (request.getLoanName() != null && !request.getLoanName().trim().isEmpty()) {
+            entity.setLoanName(request.getLoanName());
+        }
+        if (request.getLoanAmount() != null) {
+            entity.setLoanAmount(request.getLoanAmount());
+        }
+        if (request.getStatus() != null && !request.getStatus().trim().isEmpty()) {
+            entity.setStatus(request.getStatus());
+        }
     }
 }

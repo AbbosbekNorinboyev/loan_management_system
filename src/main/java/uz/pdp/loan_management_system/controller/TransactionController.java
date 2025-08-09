@@ -22,7 +22,7 @@ public class TransactionController {
         return transactionService.getTransaction(transactionId);
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public Response getAllTransaction() {
         return transactionService.getAllTransaction();
     }

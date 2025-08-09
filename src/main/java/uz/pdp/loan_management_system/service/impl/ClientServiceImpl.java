@@ -14,6 +14,7 @@ import uz.pdp.loan_management_system.mapper.interfaces.ClientMapperInterface;
 import uz.pdp.loan_management_system.repository.ClientRepository;
 import uz.pdp.loan_management_system.service.ClientService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -57,7 +58,7 @@ public class ClientServiceImpl implements ClientService {
                 .code(HttpStatus.OK.value())
                 .message("Client list successfully found")
                 .success(true)
-                .data(clients.stream().map(clientMapper::toResponse).toList())
+                .data(clientMapper.dtoList(clients))
                 .build();
     }
 
@@ -65,9 +66,8 @@ public class ClientServiceImpl implements ClientService {
     public Response updateClient(ClientRequest clientRequest, Long clientId) {
         Client client = clientRepository.findById(clientId)
                 .orElseThrow(() -> new ResourceNotFoundException("Client not found: " + clientId));
-        client.setName(clientRequest.getName());
-        client.setEmail(clientRequest.getEmail());
-        client.setPhoneNumber(clientRequest.getPhoneNumber());
+        clientMapper.update(client, clientRequest);
+        client.setUpdatedAt(LocalDateTime.now());
         clientRepository.save(client);
         return Response.builder()
                 .code(HttpStatus.OK.value())
