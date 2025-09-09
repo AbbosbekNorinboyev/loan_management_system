@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonPropertyOrder({"code","message"})
+@JsonPropertyOrder({"code", "message"})
 public class ErrorResponse implements Serializable {
     @JsonProperty("code")
     private int code;

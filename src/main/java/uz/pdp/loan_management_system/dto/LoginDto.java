@@ -9,7 +9,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class LoginCreateDTO {
+public class LoginDto {
     @NotBlank(message = "username can not be null or empty")
     private String username;
     @NotBlank(message = "password can not be null or empty")

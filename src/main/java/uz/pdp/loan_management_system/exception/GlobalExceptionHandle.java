@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import uz.pdp.loan_management_system.dto.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
+
+import static uz.pdp.loan_management_system.util.Util.localDateTimeFormatter;
 
 @RestControllerAdvice
 @RequiredArgsConstructor
@@ -31,6 +34,7 @@ public class GlobalExceptionHandle {
                 .success(false)
                 .error(validationError)
                 .data(Empty.builder().build())
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -48,6 +52,7 @@ public class GlobalExceptionHandle {
                 .success(false)
                 .error(error)
                 .data(Empty.builder().build())
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
         return new ResponseEntity<>(responseData, HttpStatus.OK);
     }
@@ -63,6 +68,7 @@ public class GlobalExceptionHandle {
                 .success(false)
                 .error(errorResponse)
                 .data(Empty.builder().build())
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -70,8 +76,10 @@ public class GlobalExceptionHandle {
     @ExceptionHandler(value = {ResourceNotFoundException.class})
     public Response resourceNotFoundException(ResourceNotFoundException e) {
         return Response.builder()
+                .success(false)
                 .code(HttpStatus.NOT_FOUND.value())
                 .message(e.getMessage())
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -86,6 +94,7 @@ public class GlobalExceptionHandle {
                 .success(false)
                 .error(errorResponse)
                 .data(Empty.builder().build())
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

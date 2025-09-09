@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import uz.pdp.loan_management_system.dto.LoginCreateDTO;
-import uz.pdp.loan_management_system.dto.RegisterCreateDTO;
+import uz.pdp.loan_management_system.dto.LoginDto;
+import uz.pdp.loan_management_system.dto.RegisterDto;
 import uz.pdp.loan_management_system.entity.AuthUser;
 import uz.pdp.loan_management_system.enums.Role;
 import uz.pdp.loan_management_system.exception.ResourceNotFoundException;
@@ -36,14 +36,14 @@ public class AuthUserController {
     private final Logger logger = LoggerFactory.getLogger(AuthUserController.class);
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody RegisterCreateDTO registerCreateDTO) {
-        Optional<AuthUser> byUsername = authUserRepository.findByUsername(registerCreateDTO.getUsername());
+    public ResponseEntity<String> register(@RequestBody RegisterDto registerDto) {
+        Optional<AuthUser> byUsername = authUserRepository.findByUsername(registerDto.getUsername());
         if (byUsername.isPresent()) {
             return ResponseEntity.badRequest().body("Username already exists");
         }
         AuthUser authUser = new AuthUser();
-        authUser.setUsername(registerCreateDTO.getUsername());
-        authUser.setPassword(passwordEncoder.encode(registerCreateDTO.getPassword()));
+        authUser.setUsername(registerDto.getUsername());
+        authUser.setPassword(passwordEncoder.encode(registerDto.getPassword()));
         authUser.setRole(Role.USER);
         authUserRepository.save(authUser);
         logger.info("AuthUser successfully register");
@@ -51,16 +51,16 @@ public class AuthUserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginCreateDTO loginCreateDTO) {
-        AuthUser authUser = authUserRepository.findByUsername(loginCreateDTO.getUsername())
-                .orElseThrow(() -> new ResourceNotFoundException("Auth User not found by username: " + loginCreateDTO.getUsername()));
+    public ResponseEntity<String> login(@RequestBody LoginDto loginDto) {
+        AuthUser authUser = authUserRepository.findByUsername(loginDto.getUsername())
+                .orElseThrow(() -> new ResourceNotFoundException("Auth User not found by username: " + loginDto.getUsername()));
         if (authUser.getUsername() == null) {
             return ResponseEntity.ok().body("Username not found");
         }
         authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginCreateDTO.getUsername(), loginCreateDTO.getPassword())
+                new UsernamePasswordAuthenticationToken(loginDto.getUsername(), loginDto.getPassword())
         );
-        UserDetails userDetails = customUserDetails.loadUserByUsername(loginCreateDTO.getUsername());
+        UserDetails userDetails = customUserDetails.loadUserByUsername(loginDto.getUsername());
         String jwtGenerateToken = jwtUtil.generateToken(userDetails.getUsername());
         logger.info("AuthUser successfully login");
         return ResponseEntity.ok(jwtGenerateToken); // login qilgandan keyin token qaytadi
