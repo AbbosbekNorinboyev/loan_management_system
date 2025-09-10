@@ -48,6 +48,7 @@ public class SecurityConfig {
                                     "/swagger-ui/**",
                                     "/swagger-ui.html",
                                     "/v3/api-docs/**",
+                                    "/api/auths/**",
                                     "/api/users/**",
                                     "/webjars/**").permitAll()
                             .requestMatchers(
@@ -58,9 +59,7 @@ public class SecurityConfig {
                             .anyRequest().authenticated();
                 })
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
-                .sessionManagement(sessionManagementConfigurer -> {
-                    sessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-                })
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }

@@ -1,8 +1,7 @@
 package uz.pdp.loan_management_system.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,17 +23,15 @@ import uz.pdp.loan_management_system.util.JWTUtil;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/auths")
 @RequiredArgsConstructor
+@Slf4j
 public class AuthUserController {
-
     private final AuthUserRepository authUserRepository;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     private final CustomUserDetailsService customUserDetails;
     private final JWTUtil jwtUtil;
-    private final Logger logger = LoggerFactory.getLogger(AuthUserController.class);
-
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterDto registerDto) {
         Optional<AuthUser> byUsername = authUserRepository.findByUsername(registerDto.getUsername());
@@ -46,7 +43,7 @@ public class AuthUserController {
         authUser.setPassword(passwordEncoder.encode(registerDto.getPassword()));
         authUser.setRole(Role.USER);
         authUserRepository.save(authUser);
-        logger.info("AuthUser successfully register");
+        log.info("AuthUser successfully register");
         return ResponseEntity.ok("AuthUser successfully register");
     }
 
@@ -62,7 +59,7 @@ public class AuthUserController {
         );
         UserDetails userDetails = customUserDetails.loadUserByUsername(loginDto.getUsername());
         String jwtGenerateToken = jwtUtil.generateToken(userDetails.getUsername());
-        logger.info("AuthUser successfully login");
+        log.info("AuthUser successfully login");
         return ResponseEntity.ok(jwtGenerateToken); // login qilgandan keyin token qaytadi
     }
 }
