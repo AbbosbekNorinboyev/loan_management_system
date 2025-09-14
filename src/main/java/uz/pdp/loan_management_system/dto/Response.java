@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.http.HttpStatus;
 
 import java.io.Serializable;
 
@@ -18,6 +19,10 @@ import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Response<T, V> implements Serializable {
+    @JsonProperty("code")
+    private Integer code;
+    @JsonProperty("status")
+    private HttpStatus status;
     @JsonProperty("success")
     @Schema(description = "status", type = "boolean", defaultValue = "false")
     private boolean success;
@@ -27,8 +32,8 @@ public class Response<T, V> implements Serializable {
     private T data;
     @JsonProperty("error")
     private V error;
-    @JsonProperty("code")
-    private Integer code;
     @JsonProperty("timestamp")
     private String timestamp;
+    @JsonProperty("path")
+    private String path;
 }
