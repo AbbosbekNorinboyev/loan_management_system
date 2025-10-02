@@ -14,7 +14,10 @@ import uz.brb.loan_management_system.mapper.interfaces.TransactionMapperInterfac
 import uz.brb.loan_management_system.repository.TransactionRepository;
 import uz.brb.loan_management_system.service.TransactionService;
 
+import java.time.LocalDateTime;
 import java.util.List;
+
+import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
 
 @Service
 @RequiredArgsConstructor
@@ -34,6 +37,7 @@ public class TransactionServiceImpl implements TransactionService {
                 .message("Transaction successfully saved")
                 .success(true)
                 .data(transactionMapper.toResponse(transaction))
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -46,6 +50,7 @@ public class TransactionServiceImpl implements TransactionService {
                 .message("Transaction successfully found")
                 .success(true)
                 .data(transactionMapperInterface.toTransactionResponse(transaction))
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -58,6 +63,7 @@ public class TransactionServiceImpl implements TransactionService {
                 .message("Transaction list successfully saved")
                 .success(true)
                 .data(transactionMapper.dtoList(transactions))
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -71,6 +77,7 @@ public class TransactionServiceImpl implements TransactionService {
                 .code(HttpStatus.OK.value())
                 .message("Transaction successfully updated")
                 .success(true)
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -82,6 +89,7 @@ public class TransactionServiceImpl implements TransactionService {
                 .message("Transaction successfully found")
                 .success(true)
                 .data(transactionMapper.dtoList(allByAccountId))
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 }

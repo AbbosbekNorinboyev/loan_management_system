@@ -14,7 +14,10 @@ import uz.brb.loan_management_system.mapper.interfaces.LoanMapperInterface;
 import uz.brb.loan_management_system.repository.LoanRepository;
 import uz.brb.loan_management_system.service.LoanService;
 
+import java.time.LocalDateTime;
 import java.util.List;
+
+import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
 
 @Service
 @RequiredArgsConstructor
@@ -34,6 +37,7 @@ public class LoanServiceImpl implements LoanService {
                 .message("Loan successfully saved")
                 .success(true)
                 .data(loanMapper.toResponse(loan))
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -46,6 +50,7 @@ public class LoanServiceImpl implements LoanService {
                 .message("Loan successfully found")
                 .success(true)
                 .data(loanMapperInterface.toLoanResponse(loan))
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -58,6 +63,7 @@ public class LoanServiceImpl implements LoanService {
                 .message("Loan list successfully found")
                 .success(true)
                 .data(loanMapper.dtoList(loans))
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -71,6 +77,7 @@ public class LoanServiceImpl implements LoanService {
                 .code(HttpStatus.OK.value())
                 .message("Loan successfully updated")
                 .success(true)
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 }

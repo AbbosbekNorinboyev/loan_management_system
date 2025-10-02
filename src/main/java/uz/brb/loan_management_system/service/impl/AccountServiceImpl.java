@@ -16,7 +16,10 @@ import uz.brb.loan_management_system.mapper.interfaces.AccountMapperInterface;
 import uz.brb.loan_management_system.repository.AccountRepository;
 import uz.brb.loan_management_system.service.AccountService;
 
+import java.time.LocalDateTime;
 import java.util.List;
+
+import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
 
 @Service
 @RequiredArgsConstructor
@@ -36,6 +39,7 @@ public class AccountServiceImpl implements AccountService {
                 .message("Account successfully saved")
                 .success(true)
                 .data(accountMapper.toResponse(account))
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -48,6 +52,7 @@ public class AccountServiceImpl implements AccountService {
                 .message("Account successfully found")
                 .success(true)
                 .data(accountMapperInterface.toAccountResponse(account))
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -60,6 +65,7 @@ public class AccountServiceImpl implements AccountService {
                 .message("Account list successfully saved")
                 .success(true)
                 .data(accountMapper.dtoList(accounts))
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -74,6 +80,7 @@ public class AccountServiceImpl implements AccountService {
                 .code(HttpStatus.OK.value())
                 .message("Account successfully updated")
                 .success(true)
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -93,6 +100,7 @@ public class AccountServiceImpl implements AccountService {
                 .message("Account successfully found")
                 .success(true)
                 .data(loanDtoList)
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 }

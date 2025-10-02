@@ -17,6 +17,8 @@ import uz.brb.loan_management_system.service.ClientService;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
+
 @Service
 @RequiredArgsConstructor
 public class ClientServiceImpl implements ClientService {
@@ -35,6 +37,7 @@ public class ClientServiceImpl implements ClientService {
                 .message("Client successfully saved")
                 .success(true)
                 .data(clientMapper.toResponse(client))
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -47,6 +50,7 @@ public class ClientServiceImpl implements ClientService {
                 .message("Client successfully found")
                 .success(true)
                 .data(clientMapper.toResponse(client))
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -59,6 +63,7 @@ public class ClientServiceImpl implements ClientService {
                 .message("Client list successfully found")
                 .success(true)
                 .data(clientMapper.dtoList(clients))
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -73,6 +78,7 @@ public class ClientServiceImpl implements ClientService {
                 .code(HttpStatus.OK.value())
                 .message("Client successfully updated")
                 .success(true)
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
@@ -84,6 +90,7 @@ public class ClientServiceImpl implements ClientService {
                 .message("Client successfully found by phone number")
                 .success(true)
                 .data(clientMapper.toResponse(client))
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 }

@@ -1,8 +1,10 @@
 package uz.brb.loan_management_system.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,10 +19,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import uz.brb.loan_management_system.dto.Response;
 import uz.brb.loan_management_system.filter.JWTAuthenticationFilter;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
+
+import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
 
 @Configuration
 @EnableWebSecurity
@@ -62,6 +68,36 @@ public class SecurityConfig {
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .exceptionHandling(exception -> exception
+                        // 401 Unauthorized
+                        .authenticationEntryPoint((request, response, authException) -> {
+                            Response resp = Response.builder()
+                                    .code(HttpStatus.UNAUTHORIZED.value())
+                                    .status(HttpStatus.UNAUTHORIZED)
+                                    .message("Unauthorized")
+                                    .success(false)
+                                    .timestamp(localDateTimeFormatter(LocalDateTime.now()))
+                                    .build();
+
+                            response.setContentType("application/json");
+                            response.setStatus(HttpStatus.UNAUTHORIZED.value());
+                            new ObjectMapper().writeValue(response.getOutputStream(), resp);
+                        })
+                        // 403 Forbidden
+                        .accessDeniedHandler((request, response, accessDeniedException) -> {
+                            Response resp = Response.builder()
+                                    .code(HttpStatus.FORBIDDEN.value())
+                                    .status(HttpStatus.FORBIDDEN)
+                                    .message("Forbidden")
+                                    .success(false)
+                                    .timestamp(localDateTimeFormatter(LocalDateTime.now()))
+                                    .build();
+
+                            response.setContentType("application/json");
+                            response.setStatus(HttpStatus.FORBIDDEN.value());
+                            new ObjectMapper().writeValue(response.getOutputStream(), resp);
+                        })
+                )
                 .build();
     }
 
