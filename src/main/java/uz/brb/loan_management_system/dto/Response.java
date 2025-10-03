@@ -36,4 +36,11 @@ public class Response<T, V> implements Serializable {
     private String timestamp;
     @JsonProperty("path")
     private String path;
+
+    public Response(String message, Boolean success, Integer code, HttpStatus status) {
+        this.code = code;
+        this.status = status;
+        this.message = message;
+        this.success = success;
+    }
 }

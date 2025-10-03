@@ -20,7 +20,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import uz.brb.loan_management_system.dto.Response;
-import uz.brb.loan_management_system.filter.JWTAuthenticationFilter;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;

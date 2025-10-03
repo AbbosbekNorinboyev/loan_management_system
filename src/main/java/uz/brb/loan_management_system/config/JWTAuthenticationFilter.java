@@ -1,4 +1,4 @@
-package uz.brb.loan_management_system.filter;
+package uz.brb.loan_management_system.config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -11,7 +11,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import uz.brb.loan_management_system.config.CustomUserDetailsService;
 import uz.brb.loan_management_system.util.JWTUtil;
 
 import java.io.IOException;
