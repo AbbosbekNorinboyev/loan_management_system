@@ -1,96 +1,141 @@
-2025-10-03 08:37:36 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [uz.brb.loan_management_system.CardControllerTest]: CardControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2025-10-03 08:37:36 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration uz.brb.loan_management_system.LoanManagementSystemApplication for test class uz.brb.loan_management_system.CardControllerTest
-2025-10-03 08:37:37 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
-2025-10-03 08:37:38 [main] INFO  u.b.l.CardControllerTest - Starting CardControllerTest using Java 17.0.6 with PID 13424 (started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
-2025-10-03 08:37:38 [main] INFO  u.b.l.CardControllerTest - The following 1 profile is active: "dev"
-2025-10-03 08:37:44 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+2025-10-16 10:49:48 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [uz.brb.loan_management_system.CardControllerTest]: CardControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-10-16 10:49:48 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration uz.brb.loan_management_system.LoanManagementSystemApplication for test class uz.brb.loan_management_system.CardControllerTest
+2025-10-16 10:49:49 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-10-16 10:49:49 [main] INFO  u.b.l.CardControllerTest - Starting CardControllerTest using Java 17.0.6 with PID 17128 (started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
+2025-10-16 10:49:49 [main] INFO  u.b.l.CardControllerTest - The following 1 profile is active: "dev"
+2025-10-16 10:49:54 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 8d574bb8-4a4e-4056-8480-feb384352305
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2025-10-03 08:37:44 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2025-10-03 08:37:44 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
-2025-10-03 08:37:44 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
-2025-10-03 08:37:44 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 7 ms
-2025-10-03 08:37:45 [main] INFO  u.b.l.CardControllerTest - Started CardControllerTest in 8.106 seconds (process running for 12.769)
-2025-10-03 08:39:15 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [uz.brb.loan_management_system.CardControllerTest]: CardControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2025-10-03 08:39:16 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration uz.brb.loan_management_system.LoanManagementSystemApplication for test class uz.brb.loan_management_system.CardControllerTest
-2025-10-03 08:39:16 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
-2025-10-03 08:39:16 [main] INFO  u.b.l.CardControllerTest - Starting CardControllerTest using Java 17.0.6 with PID 4036 (started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
-2025-10-03 08:39:16 [main] INFO  u.b.l.CardControllerTest - The following 1 profile is active: "dev"
-2025-10-03 08:39:20 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: fb7174f0-1770-4e24-8a7b-67b38167e266
+Using generated security password: cf0630ff-8c8a-4edc-8744-05bab0323fa4
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2025-10-03 08:39:20 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2025-10-03 08:39:20 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
-2025-10-03 08:39:20 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
-2025-10-03 08:39:20 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
-2025-10-03 08:39:20 [main] INFO  u.b.l.CardControllerTest - Started CardControllerTest in 4.741 seconds (process running for 6.724)
-2025-10-03 08:39:40 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [uz.brb.loan_management_system.CardControllerTest]: CardControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2025-10-03 08:39:40 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration uz.brb.loan_management_system.LoanManagementSystemApplication for test class uz.brb.loan_management_system.CardControllerTest
-2025-10-03 08:39:41 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
-2025-10-03 08:39:41 [main] INFO  u.b.l.CardControllerTest - Starting CardControllerTest using Java 17.0.6 with PID 17960 (started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
-2025-10-03 08:39:41 [main] INFO  u.b.l.CardControllerTest - The following 1 profile is active: "dev"
-2025-10-03 08:39:44 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 0226051d-ed59-453f-8b39-c94381a2fe70
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2025-10-03 08:39:44 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2025-10-03 08:39:45 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
-2025-10-03 08:39:45 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
-2025-10-03 08:39:45 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
-2025-10-03 08:39:45 [main] INFO  u.b.l.CardControllerTest - Started CardControllerTest in 4.158 seconds (process running for 6.133)
-2025-10-03 08:40:00 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [uz.brb.loan_management_system.CardControllerTest]: CardControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2025-10-03 08:40:00 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration uz.brb.loan_management_system.LoanManagementSystemApplication for test class uz.brb.loan_management_system.CardControllerTest
-2025-10-03 08:40:01 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
-2025-10-03 08:40:01 [main] INFO  u.b.l.CardControllerTest - Starting CardControllerTest using Java 17.0.6 with PID 7344 (started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
-2025-10-03 08:40:01 [main] INFO  u.b.l.CardControllerTest - The following 1 profile is active: "dev"
-2025-10-03 08:40:04 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: e10621ed-a8ca-43a9-bce9-76716e83b9dc
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2025-10-03 08:40:04 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2025-10-03 08:40:05 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
-2025-10-03 08:40:05 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
-2025-10-03 08:40:05 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
-2025-10-03 08:40:05 [main] INFO  u.b.l.CardControllerTest - Started CardControllerTest in 4.26 seconds (process running for 6.483)
-2025-10-03 08:40:36 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [uz.brb.loan_management_system.CardControllerTest]: CardControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2025-10-03 08:40:37 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration uz.brb.loan_management_system.LoanManagementSystemApplication for test class uz.brb.loan_management_system.CardControllerTest
-2025-10-03 08:40:38 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
-2025-10-03 08:40:38 [main] INFO  u.b.l.CardControllerTest - Starting CardControllerTest using Java 17.0.6 with PID 11144 (started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
-2025-10-03 08:40:38 [main] INFO  u.b.l.CardControllerTest - The following 1 profile is active: "dev"
-2025-10-03 08:40:45 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 3c7d459b-c858-4971-9559-1f60c0c2ec76
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2025-10-03 08:40:45 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2025-10-03 08:40:45 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
-2025-10-03 08:40:45 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
-2025-10-03 08:40:45 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 4 ms
-2025-10-03 08:40:46 [main] INFO  u.b.l.CardControllerTest - Started CardControllerTest in 8.497 seconds (process running for 12.948)
-2025-10-03 08:41:17 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [uz.brb.loan_management_system.CardControllerTest]: CardControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2025-10-03 08:41:17 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration uz.brb.loan_management_system.LoanManagementSystemApplication for test class uz.brb.loan_management_system.CardControllerTest
-2025-10-03 08:41:17 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
-2025-10-03 08:41:17 [main] INFO  u.b.l.CardControllerTest - Starting CardControllerTest using Java 17.0.6 with PID 1828 (started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
-2025-10-03 08:41:17 [main] INFO  u.b.l.CardControllerTest - The following 1 profile is active: "dev"
-2025-10-03 08:41:21 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: b96e6150-cf4b-4acc-8f4c-b8c50ca6edc7
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2025-10-03 08:41:21 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2025-10-03 08:41:21 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
-2025-10-03 08:41:21 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
-2025-10-03 08:41:21 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
-2025-10-03 08:41:21 [main] INFO  u.b.l.CardControllerTest - Started CardControllerTest in 4.008 seconds (process running for 5.87)
+2025-10-16 10:49:54 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-10-16 10:49:55 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2025-10-16 10:49:55 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2025-10-16 10:49:55 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 3 ms
+2025-10-16 10:49:55 [main] INFO  u.b.l.CardControllerTest - Started CardControllerTest in 6.8 seconds (process running for 9.487)
+2025-10-16 10:50:06 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-10-16 10:50:06 [main] INFO  u.b.l.LoanManagementSystemApplication - Starting LoanManagementSystemApplication using Java 17.0.6 with PID 10524 (C:\Abbos\Spring Project\Test Projects\LoanManagementSystem\target\classes started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
+2025-10-16 10:50:06 [main] INFO  u.b.l.LoanManagementSystemApplication - The following 1 profile is active: "dev"
+2025-10-16 10:50:07 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-16 10:50:07 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 106 ms. Found 6 JPA repository interfaces.
+2025-10-16 10:50:08 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1195 (http)
+2025-10-16 10:50:08 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1195"]
+2025-10-16 10:50:08 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-16 10:50:08 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-10-16 10:50:08 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-16 10:50:08 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2255 ms
+2025-10-16 10:50:09 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-16 10:50:09 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-10-16 10:50:09 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-16 10:50:09 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-16 10:50:10 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-16 10:50:10 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@c83ed77
+2025-10-16 10:50:10 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-16 10:50:10 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-16 10:50:12 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-16 10:50:13 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-16 10:50:13 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-16 10:50:15 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-10-16 10:50:15 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-16 10:50:16 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1195"]
+2025-10-16 10:50:16 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1195 (http) with context path '/'
+2025-10-16 10:50:16 [main] INFO  u.b.l.LoanManagementSystemApplication - Started LoanManagementSystemApplication in 10.796 seconds (process running for 12.167)
+2025-10-16 10:54:58 [http-nio-1195-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-16 10:54:58 [http-nio-1195-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-16 10:54:58 [http-nio-1195-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2025-10-16 10:55:00 [http-nio-1195-exec-9] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 1210 ms
+2025-10-16 10:55:22 [http-nio-1195-exec-2] INFO  u.b.l.controller.AuthUserController - AuthUser successfully login
+2025-10-16 10:57:12 [http-nio-1195-exec-8] INFO  u.b.l.s.impl.AccountServiceImpl - Account list successfully found
+2025-10-16 11:01:04 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-10-16 11:01:04 [main] INFO  u.b.l.LoanManagementSystemApplication - Starting LoanManagementSystemApplication using Java 17.0.6 with PID 16220 (C:\Abbos\Spring Project\Test Projects\LoanManagementSystem\target\classes started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
+2025-10-16 11:01:04 [main] INFO  u.b.l.LoanManagementSystemApplication - The following 1 profile is active: "dev"
+2025-10-16 11:01:07 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-16 11:01:07 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 173 ms. Found 6 JPA repository interfaces.
+2025-10-16 11:01:09 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1195 (http)
+2025-10-16 11:01:09 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1195"]
+2025-10-16 11:01:09 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-16 11:01:09 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-10-16 11:01:09 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-16 11:01:09 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4380 ms
+2025-10-16 11:01:09 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-16 11:01:10 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-10-16 11:01:10 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-16 11:01:10 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-16 11:01:10 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-16 11:01:11 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@53d2b827
+2025-10-16 11:01:11 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-16 11:01:11 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-16 11:01:13 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-16 11:01:14 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-16 11:01:15 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-16 11:01:16 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-10-16 11:01:16 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-16 11:01:17 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-10-16 11:01:18 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1195"]
+2025-10-16 11:01:18 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1195 (http) with context path '/'
+2025-10-16 11:01:18 [main] INFO  u.b.l.LoanManagementSystemApplication - Started LoanManagementSystemApplication in 14.975 seconds (process running for 19.384)
+2025-10-16 11:01:19 [RMI TCP Connection(11)-192.168.1.103] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-16 11:01:19 [RMI TCP Connection(11)-192.168.1.103] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-16 11:01:19 [RMI TCP Connection(11)-192.168.1.103] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2025-10-16 11:04:31 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-16 11:04:31 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-16 11:04:31 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-16 11:04:31 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-16 11:04:31 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-16 11:04:37 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-10-16 11:04:37 [main] INFO  u.b.l.LoanManagementSystemApplication - Starting LoanManagementSystemApplication using Java 17.0.6 with PID 17268 (C:\Abbos\Spring Project\Test Projects\LoanManagementSystem\target\classes started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
+2025-10-16 11:04:37 [main] INFO  u.b.l.LoanManagementSystemApplication - The following 1 profile is active: "dev"
+2025-10-16 11:04:38 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-16 11:04:38 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 87 ms. Found 6 JPA repository interfaces.
+2025-10-16 11:04:39 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1195 (http)
+2025-10-16 11:04:39 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1195"]
+2025-10-16 11:04:40 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-16 11:04:40 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-10-16 11:04:40 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-16 11:04:40 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2721 ms
+2025-10-16 11:04:40 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-16 11:04:40 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-10-16 11:04:40 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-10-16 11:04:40 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-16 11:04:41 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-16 11:04:41 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@af94b0b
+2025-10-16 11:04:41 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-16 11:04:41 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-16 11:04:42 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-16 11:04:43 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-16 11:04:43 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-16 11:04:44 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-10-16 11:04:45 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-16 11:04:45 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+2025-10-16 11:04:46 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1195"]
+2025-10-16 11:04:46 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1195 (http) with context path '/'
+2025-10-16 11:04:46 [main] INFO  u.b.l.LoanManagementSystemApplication - Started LoanManagementSystemApplication in 10.134 seconds (process running for 12.198)
+2025-10-16 11:04:47 [RMI TCP Connection(4)-192.168.1.103] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-16 11:04:47 [RMI TCP Connection(4)-192.168.1.103] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-16 11:04:47 [RMI TCP Connection(4)-192.168.1.103] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-10-16 11:05:28 [http-nio-1195-exec-5] INFO  u.b.l.s.impl.AccountServiceImpl - Account list successfully found
+2025-10-16 11:05:28 [http-nio-1195-exec-6] INFO  u.b.l.s.impl.AccountServiceImpl - Account list successfully found
+2025-10-16 11:05:28 [http-nio-1195-exec-7] INFO  u.b.l.s.impl.AccountServiceImpl - Account list successfully found
+2025-10-16 11:05:29 [http-nio-1195-exec-4] INFO  u.b.l.s.impl.AccountServiceImpl - Account list successfully found

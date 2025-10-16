@@ -55,7 +55,8 @@ public class SecurityConfig {
                                     "/v3/api-docs/**",
                                     "/api/auths/**",
                                     "/api/users/**",
-                                    "/webjars/**").permitAll()
+                                    "/webjars/**",
+                                    "/actuator/**").permitAll()
                             .requestMatchers(
                                     "/api/v1/loans/**",
                                     "/api/v1/accounts/**",
