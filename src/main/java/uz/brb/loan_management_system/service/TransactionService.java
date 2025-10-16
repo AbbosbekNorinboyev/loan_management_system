@@ -10,7 +10,5 @@ public interface TransactionService {
 
     Response getAllTransaction();
 
-    Response updateTransaction(TransactionRequest transactionRequest, Long transactionId);
-
     Response getTransactionByAccountId(Long accountId);
 }

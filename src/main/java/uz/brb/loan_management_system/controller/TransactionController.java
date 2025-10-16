@@ -27,12 +27,6 @@ public class TransactionController {
         return transactionService.getAllTransaction();
     }
 
-    @PutMapping("/update")
-    public Response updateTransaction(@RequestBody TransactionRequest transactionRequest,
-                                      @RequestParam("transactionId") Long transactionId) {
-        return transactionService.updateTransaction(transactionRequest, transactionId);
-    }
-
     @GetMapping("/getTransactionByAccountId")
     public Response getTransactionByAccountId(@RequestParam("/accountId") Long accountId) {
         return transactionService.getTransactionByAccountId(accountId);

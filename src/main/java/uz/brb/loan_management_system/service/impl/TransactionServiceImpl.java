@@ -68,20 +68,6 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public Response updateTransaction(TransactionRequest transactionRequest, Long transactionId) {
-        Transaction transaction = transactionRepository.findById(transactionId)
-                .orElseThrow(() -> new ResourceNotFoundException("Transaction not found: " + transactionId));
-        transactionMapper.update(transaction, transactionRequest);
-        transactionRepository.save(transaction);
-        return Response.builder()
-                .code(HttpStatus.OK.value())
-                .message("Transaction successfully updated")
-                .success(true)
-                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
-                .build();
-    }
-
-    @Override
     public Response getTransactionByAccountId(Long accountId) {
         List<Transaction> allByAccountId = transactionRepository.findAllByAccountId(accountId);
         return Response.builder()
