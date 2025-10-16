@@ -76,3 +76,12 @@ management:
           - info
           - configprops
         exclude: shutdown   # shutdown xavfli, odatda yopiladi
+
+  # Health Check config
+  health:
+    db:
+      enabled: true          # DB health check yoqilgan
+    diskspace:
+      enabled: true          # Disk bo‘sh joyini tekshiradi
+    ping:
+      enabled: true          # Ping check
