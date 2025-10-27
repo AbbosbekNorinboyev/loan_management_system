@@ -19,10 +19,12 @@ import uz.brb.loan_management_system.exception.ResourceNotFoundException;
 import uz.brb.loan_management_system.mapper.UserMapper;
 import uz.brb.loan_management_system.repository.AuthUserRepository;
 import uz.brb.loan_management_system.service.UserService;
+import uz.brb.loan_management_system.service.logic.RedisCacheService;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
 
@@ -32,6 +34,8 @@ public class UserServiceImpl implements UserService {
     private final AuthUserRepository authUserRepository;
     private final EntityManager entityManager;
     private final UserMapper userMapper;
+    private final RedisCacheService redisCacheService;
+    private static final String CACHE_KEY = "usersLoan";
 
     @Override
     public Response get(Long id) {
@@ -50,11 +54,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public Response getAll(Pageable pageable) {
         List<AuthUser> users = authUserRepository.findAll(pageable).getContent();
+        redisCacheService.saveData(CACHE_KEY, users, 10, TimeUnit.MINUTES);
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .status(HttpStatus.OK)
                 .message("AuthUser list successfully found")
-                .data(userMapper.dtoList(users))
+                .data(redisCacheService.getData(CACHE_KEY))
                 .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }

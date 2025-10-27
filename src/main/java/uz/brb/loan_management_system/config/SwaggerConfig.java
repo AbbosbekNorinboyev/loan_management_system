@@ -12,8 +12,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @OpenAPIDefinition(
         info = @Info(
+                title = "LOAN MANAGEMENT SYSTEM",
                 version = "2.6.0",
-                description = "API Documentation"
+                description = "LOAN MANAGEMENT SYSTEM API Documentation"
         ),
         servers = @Server(
                 url = "http://localhost:1195",
