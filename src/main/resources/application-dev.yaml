@@ -98,3 +98,5 @@ management:
       enabled: true          # Disk bo‘sh joyini tekshiradi
     ping:
       enabled: true          # Ping check
+    redis:
+      enabled: true
