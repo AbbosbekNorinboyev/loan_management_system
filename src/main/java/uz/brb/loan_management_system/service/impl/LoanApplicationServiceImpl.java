@@ -7,9 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import uz.brb.loan_management_system.dto.Response;
 import uz.brb.loan_management_system.dto.request.LoanApplicationRequest;
+import uz.brb.loan_management_system.entity.AuthUser;
 import uz.brb.loan_management_system.entity.LoanApplication;
 import uz.brb.loan_management_system.exception.ResourceNotFoundException;
-import uz.brb.loan_management_system.mapper.LoanMapper;
+import uz.brb.loan_management_system.mapper.LoanApplicationMapper;
+import uz.brb.loan_management_system.repository.AuthUserRepository;
 import uz.brb.loan_management_system.repository.LoanApplicationRepository;
 import uz.brb.loan_management_system.service.LoanApplicationService;
 
@@ -22,19 +24,25 @@ import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
 @RequiredArgsConstructor
 public class LoanApplicationServiceImpl implements LoanApplicationService {
     private final LoanApplicationRepository loanApplicationRepository;
-    private final LoanMapper loanMapper;
+    private final LoanApplicationMapper loanApplicationMapper;
+    private final AuthUserRepository authUserRepository;
     private static final Logger logger = LoggerFactory.getLogger(LoanApplicationServiceImpl.class);
 
     @Override
     public Response createLoan(LoanApplicationRequest loanApplicationRequest) {
-        LoanApplication loanApplication = loanMapper.toEntity(loanApplicationRequest);
+        AuthUser authUser = authUserRepository.findById(loanApplicationRequest.getAuthUserId())
+                .orElseThrow(() -> new ResourceNotFoundException("AuthUser not found: " + loanApplicationRequest.getAuthUserId()));
+
+        LoanApplication loanApplication = loanApplicationMapper.toEntity(loanApplicationRequest);
+        loanApplication.setAuthUser(authUser);
         logger.info("Loan successfully saved");
         loanApplicationRepository.save(loanApplication);
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Loan successfully saved")
                 .success(true)
-                .data(loanMapper.toResponse(loanApplication))
+                .data(loanApplicationMapper.toResponse(loanApplication))
                 .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
@@ -47,7 +55,7 @@ public class LoanApplicationServiceImpl implements LoanApplicationService {
                 .code(HttpStatus.OK.value())
                 .message("Loan successfully found")
                 .success(true)
-                .data(loanMapper.toResponse(loanApplication))
+                .data(loanApplicationMapper.toResponse(loanApplication))
                 .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
@@ -60,7 +68,7 @@ public class LoanApplicationServiceImpl implements LoanApplicationService {
                 .code(HttpStatus.OK.value())
                 .message("Loan list successfully found")
                 .success(true)
-                .data(loanMapper.dtoList(loans))
+                .data(loanApplicationMapper.dtoList(loans))
                 .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
@@ -69,7 +77,7 @@ public class LoanApplicationServiceImpl implements LoanApplicationService {
     public Response updateLoan(LoanApplicationRequest loanApplicationRequest, Long loanId) {
         LoanApplication loan = loanApplicationRepository.findById(loanId)
                 .orElseThrow(() -> new ResourceNotFoundException("Loan not found: " + loanId));
-        loanMapper.update(loan, loanApplicationRequest);
+        loanApplicationMapper.update(loan, loanApplicationRequest);
         loanApplicationRepository.save(loan);
         return Response.builder()
                 .code(HttpStatus.OK.value())

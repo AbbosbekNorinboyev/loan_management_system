@@ -4,27 +4,19 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import uz.brb.loan_management_system.dto.request.LoanApplicationRequest;
 import uz.brb.loan_management_system.dto.response.LoanApplicationResponse;
-import uz.brb.loan_management_system.entity.AuthUser;
 import uz.brb.loan_management_system.entity.LoanApplication;
-import uz.brb.loan_management_system.exception.ResourceNotFoundException;
-import uz.brb.loan_management_system.repository.AuthUserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class LoanMapper {
-    private final AuthUserRepository authUserRepository;
-
+public class LoanApplicationMapper {
     public LoanApplication toEntity(LoanApplicationRequest loanApplicationRequest) {
-        AuthUser authUser = authUserRepository.findById(loanApplicationRequest.getAuthUserId())
-                .orElseThrow(() -> new ResourceNotFoundException("AuthUser not found: " + loanApplicationRequest.getAuthUserId()));
         LoanApplication loanApplication = new LoanApplication();
         loanApplication.setRequestedAmount(loanApplicationRequest.getRequestedAmount());
         loanApplication.setTenureMonths(loanApplicationRequest.getTenureMonths());
         loanApplication.setStatus(loanApplicationRequest.getStatus());
-        loanApplication.setAuthUser(authUser);
         return loanApplication;
     }
 

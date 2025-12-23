@@ -9,10 +9,12 @@ import uz.brb.loan_management_system.dto.LoanDto;
 import uz.brb.loan_management_system.dto.Response;
 import uz.brb.loan_management_system.dto.request.AccountRequest;
 import uz.brb.loan_management_system.entity.Account;
+import uz.brb.loan_management_system.entity.AuthUser;
 import uz.brb.loan_management_system.enums.AccountType;
 import uz.brb.loan_management_system.exception.ResourceNotFoundException;
 import uz.brb.loan_management_system.mapper.AccountMapper;
 import uz.brb.loan_management_system.repository.AccountRepository;
+import uz.brb.loan_management_system.repository.AuthUserRepository;
 import uz.brb.loan_management_system.service.AccountService;
 
 import java.time.LocalDateTime;
@@ -25,14 +27,19 @@ import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
 public class AccountServiceImpl implements AccountService {
     private final AccountMapper accountMapper;
     private final AccountRepository accountRepository;
-    private final AccountMapper accountMapper2;
+    private final AuthUserRepository authUserRepository;
     private static final Logger logger = LoggerFactory.getLogger(AccountServiceImpl.class);
 
     @Override
     public Response createAccount(AccountRequest accountRequest) {
+        AuthUser authUser = authUserRepository.findById(accountRequest.getAuthUserId())
+                .orElseThrow(() -> new ResourceNotFoundException("AuthUser not found: " + accountRequest.getAuthUserId()));
+
         Account account = accountMapper.toEntity(accountRequest);
+        account.setAuthUser(authUser);
         accountRepository.save(account);
         logger.info("Account successfully saved");
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Account successfully saved")

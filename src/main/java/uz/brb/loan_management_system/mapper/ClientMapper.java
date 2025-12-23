@@ -1,30 +1,20 @@
 package uz.brb.loan_management_system.mapper;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import uz.brb.loan_management_system.dto.request.ClientRequest;
 import uz.brb.loan_management_system.dto.response.ClientResponse;
-import uz.brb.loan_management_system.entity.AuthUser;
 import uz.brb.loan_management_system.entity.Client;
-import uz.brb.loan_management_system.exception.ResourceNotFoundException;
-import uz.brb.loan_management_system.repository.AuthUserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@RequiredArgsConstructor
 public class ClientMapper {
-    private final AuthUserRepository authUserRepository;
-
     public Client toEntity(ClientRequest clientRequest) {
-        AuthUser authUser = authUserRepository.findById(clientRequest.getAuthUserId())
-                .orElseThrow(() -> new ResourceNotFoundException("AuthUser not found: " + clientRequest.getAuthUserId()));
         return Client.builder()
                 .name(clientRequest.getName())
                 .email(clientRequest.getEmail())
                 .phoneNumber(clientRequest.getPhoneNumber())
-                .authUser(authUser)
                 .createdAt(clientRequest.getCreatedAt())
                 .updatedAt(clientRequest.getUpdatedAt())
                 .build();

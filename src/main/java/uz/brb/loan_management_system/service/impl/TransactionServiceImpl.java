@@ -7,9 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import uz.brb.loan_management_system.dto.Response;
 import uz.brb.loan_management_system.dto.request.TransactionRequest;
+import uz.brb.loan_management_system.entity.Account;
 import uz.brb.loan_management_system.entity.Transaction;
 import uz.brb.loan_management_system.exception.ResourceNotFoundException;
 import uz.brb.loan_management_system.mapper.TransactionMapper;
+import uz.brb.loan_management_system.repository.AccountRepository;
 import uz.brb.loan_management_system.repository.TransactionRepository;
 import uz.brb.loan_management_system.service.TransactionService;
 
@@ -23,13 +25,19 @@ import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
 public class TransactionServiceImpl implements TransactionService {
     private final TransactionMapper transactionMapper;
     private final TransactionRepository transactionRepository;
+    private final AccountRepository accountRepository;
     private static final Logger logger = LoggerFactory.getLogger(TransactionServiceImpl.class);
 
     @Override
     public Response createTransaction(TransactionRequest transactionRequest) {
+        Account account = accountRepository.findById(transactionRequest.getAccountId())
+                .orElseThrow(() -> new ResourceNotFoundException("Account not found: " + transactionRequest.getAccountId()));
+
         Transaction transaction = transactionMapper.toEntity(transactionRequest);
-        transactionRepository.save(transaction);
+        transaction.setAccount(account);
+        transactionRepository.saveAndFlush(transaction);
         logger.info("Transaction successfully saved");
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Transaction successfully saved")

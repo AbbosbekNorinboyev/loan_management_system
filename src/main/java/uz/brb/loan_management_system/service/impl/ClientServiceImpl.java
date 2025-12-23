@@ -7,9 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import uz.brb.loan_management_system.dto.Response;
 import uz.brb.loan_management_system.dto.request.ClientRequest;
+import uz.brb.loan_management_system.entity.AuthUser;
 import uz.brb.loan_management_system.entity.Client;
 import uz.brb.loan_management_system.exception.ResourceNotFoundException;
 import uz.brb.loan_management_system.mapper.ClientMapper;
+import uz.brb.loan_management_system.repository.AuthUserRepository;
 import uz.brb.loan_management_system.repository.ClientRepository;
 import uz.brb.loan_management_system.service.ClientService;
 
@@ -23,13 +25,19 @@ import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
 public class ClientServiceImpl implements ClientService {
     private final ClientRepository clientRepository;
     private final ClientMapper clientMapper;
+    private final AuthUserRepository authUserRepository;
     private static final Logger logger = LoggerFactory.getLogger(ClientServiceImpl.class);
 
     @Override
     public Response createClient(ClientRequest clientRequest) {
+        AuthUser authUser = authUserRepository.findById(clientRequest.getAuthUserId())
+                .orElseThrow(() -> new ResourceNotFoundException("AuthUser not found: " + clientRequest.getAuthUserId()));
+
         Client client = clientMapper.toEntity(clientRequest);
+        client.setAuthUser(authUser);
         clientRepository.save(client);
         logger.info("Client successfully saved");
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Client successfully saved")
