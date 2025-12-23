@@ -2,6 +2,9 @@ package uz.brb.loan_management_system.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import uz.brb.loan_management_system.enums.LoanApplicationStatus;
+
+import java.math.BigDecimal;
 
 @NoArgsConstructor
 @Builder
@@ -9,12 +12,15 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class LoanRequest {
-    @NotBlank(message = "loanName can not be null or empty")
-    private String loanName;
-    private Double loanAmount;
+public class LoanApplicationRequest {
+    @NotBlank(message = "requestedAmount can not be null or empty")
+    private BigDecimal requestedAmount;
+
+    private Integer tenureMonths;
+
     @NotBlank(message = "status can not be null or empty")
-    private String status;
+    private LoanApplicationStatus status;
+
     @NotBlank(message = "authUserId can not be null or empty")
     private Long authUserId;
 }

@@ -2,6 +2,9 @@ package uz.brb.loan_management_system.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import uz.brb.loan_management_system.enums.LoanStatus;
+
+import java.math.BigDecimal;
 
 @Entity
 @NoArgsConstructor
@@ -11,13 +14,22 @@ import lombok.*;
 @Setter
 @ToString
 public class Loan {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String loanName;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "auth_user_id")
-    private AuthUser authUser;
-    private Double loanAmount;
-    private String status;
+
+    @OneToOne
+    private LoanApplication application;
+
+    private BigDecimal principal;
+
+    private BigDecimal interestRate;
+
+    private Integer tenureMonths;
+
+    private BigDecimal outstandingAmount;
+
+    @Enumerated(EnumType.STRING)
+    private LoanStatus status; // ACTIVE, CLOSED, DEFAULTED
 }

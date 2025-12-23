@@ -2,10 +2,10 @@ package uz.brb.loan_management_system.mapper;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import uz.brb.loan_management_system.dto.request.LoanRequest;
-import uz.brb.loan_management_system.dto.response.LoanResponse;
+import uz.brb.loan_management_system.dto.request.LoanApplicationRequest;
+import uz.brb.loan_management_system.dto.response.LoanApplicationResponse;
 import uz.brb.loan_management_system.entity.AuthUser;
-import uz.brb.loan_management_system.entity.Loan;
+import uz.brb.loan_management_system.entity.LoanApplication;
 import uz.brb.loan_management_system.exception.ResourceNotFoundException;
 import uz.brb.loan_management_system.repository.AuthUserRepository;
 
@@ -17,45 +17,45 @@ import java.util.List;
 public class LoanMapper {
     private final AuthUserRepository authUserRepository;
 
-    public Loan toEntity(LoanRequest loanRequest) {
-        AuthUser authUser = authUserRepository.findById(loanRequest.getAuthUserId())
-                .orElseThrow(() -> new ResourceNotFoundException("AuthUser not found: " + loanRequest.getAuthUserId()));
-        Loan loan = new Loan();
-        loan.setLoanName(loanRequest.getLoanName());
-        loan.setLoanAmount(loanRequest.getLoanAmount());
-        loan.setStatus(loanRequest.getStatus());
-        loan.setAuthUser(authUser);
-        return loan;
+    public LoanApplication toEntity(LoanApplicationRequest loanApplicationRequest) {
+        AuthUser authUser = authUserRepository.findById(loanApplicationRequest.getAuthUserId())
+                .orElseThrow(() -> new ResourceNotFoundException("AuthUser not found: " + loanApplicationRequest.getAuthUserId()));
+        LoanApplication loanApplication = new LoanApplication();
+        loanApplication.setRequestedAmount(loanApplicationRequest.getRequestedAmount());
+        loanApplication.setTenureMonths(loanApplicationRequest.getTenureMonths());
+        loanApplication.setStatus(loanApplicationRequest.getStatus());
+        loanApplication.setAuthUser(authUser);
+        return loanApplication;
     }
 
-    public LoanResponse toResponse(Loan loan) {
-        return LoanResponse.builder()
-                .id(loan.getId())
-                .loanName(loan.getLoanName())
-                .loanAmount(loan.getLoanAmount())
-                .status(loan.getStatus())
-                .authUserId(loan.getAuthUser().getId())
+    public LoanApplicationResponse toResponse(LoanApplication loanApplication) {
+        return LoanApplicationResponse.builder()
+                .id(loanApplication.getId())
+                .requestedAmount(loanApplication.getRequestedAmount())
+                .tenureMonths(loanApplication.getTenureMonths())
+                .status(loanApplication.getStatus())
+                .authUserId(loanApplication.getAuthUser().getId())
                 .build();
     }
 
-    public List<LoanResponse> dtoList(List<Loan> list) {
+    public List<LoanApplicationResponse> dtoList(List<LoanApplication> list) {
         if (list != null && !list.isEmpty()) {
             return list.stream().map(this::toResponse).toList();
         }
         return new ArrayList<>();
     }
 
-    public void update(Loan entity, LoanRequest request) {
+    public void update(LoanApplication entity, LoanApplicationRequest request) {
         if (request == null) {
             return;
         }
-        if (request.getLoanName() != null && !request.getLoanName().trim().isEmpty()) {
-            entity.setLoanName(request.getLoanName());
+        if (request.getRequestedAmount() != null) {
+            entity.setRequestedAmount(request.getRequestedAmount());
         }
-        if (request.getLoanAmount() != null) {
-            entity.setLoanAmount(request.getLoanAmount());
+        if (request.getTenureMonths() != null) {
+            entity.setTenureMonths(request.getTenureMonths());
         }
-        if (request.getStatus() != null && !request.getStatus().trim().isEmpty()) {
+        if (request.getStatus() != null) {
             entity.setStatus(request.getStatus());
         }
     }

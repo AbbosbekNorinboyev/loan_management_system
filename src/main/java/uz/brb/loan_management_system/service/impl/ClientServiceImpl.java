@@ -10,7 +10,6 @@ import uz.brb.loan_management_system.dto.request.ClientRequest;
 import uz.brb.loan_management_system.entity.Client;
 import uz.brb.loan_management_system.exception.ResourceNotFoundException;
 import uz.brb.loan_management_system.mapper.ClientMapper;
-import uz.brb.loan_management_system.mapper.interfaces.ClientMapperInterface;
 import uz.brb.loan_management_system.repository.ClientRepository;
 import uz.brb.loan_management_system.service.ClientService;
 
@@ -24,7 +23,6 @@ import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
 public class ClientServiceImpl implements ClientService {
     private final ClientRepository clientRepository;
     private final ClientMapper clientMapper;
-    private final ClientMapperInterface clientMapperInterface;
     private static final Logger logger = LoggerFactory.getLogger(ClientServiceImpl.class);
 
     @Override

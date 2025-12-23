@@ -10,7 +10,6 @@ import uz.brb.loan_management_system.dto.request.TransactionRequest;
 import uz.brb.loan_management_system.entity.Transaction;
 import uz.brb.loan_management_system.exception.ResourceNotFoundException;
 import uz.brb.loan_management_system.mapper.TransactionMapper;
-import uz.brb.loan_management_system.mapper.interfaces.TransactionMapperInterface;
 import uz.brb.loan_management_system.repository.TransactionRepository;
 import uz.brb.loan_management_system.service.TransactionService;
 
@@ -23,7 +22,6 @@ import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
 @RequiredArgsConstructor
 public class TransactionServiceImpl implements TransactionService {
     private final TransactionMapper transactionMapper;
-    private final TransactionMapperInterface transactionMapperInterface;
     private final TransactionRepository transactionRepository;
     private static final Logger logger = LoggerFactory.getLogger(TransactionServiceImpl.class);
 
@@ -49,7 +47,7 @@ public class TransactionServiceImpl implements TransactionService {
                 .code(HttpStatus.OK.value())
                 .message("Transaction successfully found")
                 .success(true)
-                .data(transactionMapperInterface.toTransactionResponse(transaction))
+                .data(transactionMapper.toResponse(transaction))
                 .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }

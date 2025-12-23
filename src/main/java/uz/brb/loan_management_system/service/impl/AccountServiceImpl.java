@@ -12,7 +12,6 @@ import uz.brb.loan_management_system.entity.Account;
 import uz.brb.loan_management_system.enums.AccountType;
 import uz.brb.loan_management_system.exception.ResourceNotFoundException;
 import uz.brb.loan_management_system.mapper.AccountMapper;
-import uz.brb.loan_management_system.mapper.interfaces.AccountMapperInterface;
 import uz.brb.loan_management_system.repository.AccountRepository;
 import uz.brb.loan_management_system.service.AccountService;
 
@@ -25,8 +24,8 @@ import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
 @RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
     private final AccountMapper accountMapper;
-    private final AccountMapperInterface accountMapperInterface;
     private final AccountRepository accountRepository;
+    private final AccountMapper accountMapper2;
     private static final Logger logger = LoggerFactory.getLogger(AccountServiceImpl.class);
 
     @Override
@@ -51,7 +50,7 @@ public class AccountServiceImpl implements AccountService {
                 .code(HttpStatus.OK.value())
                 .message("Account successfully found")
                 .success(true)
-                .data(accountMapperInterface.toAccountResponse(account))
+                .data(accountMapper.toResponse(account))
                 .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }

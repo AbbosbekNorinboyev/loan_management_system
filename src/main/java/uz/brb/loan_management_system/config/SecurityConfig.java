@@ -35,7 +35,8 @@ public class SecurityConfig {
 
     /**
      * @param configuration
-     * @return Bu metod ko'pincha, foydalanuvchi JWT tokeni bilan autentifikatsiya qilayotgan va Spring Security bilan o'rnatilgan ilovalarda ishlatiladi.
+     * @return Bu metod ko'pincha, foydalanuvchi JWT tokeni bilan autentifikatsiya qilayotgan
+     * va Spring Security bilan o'rnatilgan ilovalarda ishlatiladi.
      * @throws Exception
      */
     @Bean
@@ -104,17 +105,5 @@ public class SecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(List.of("*"));
-        corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        corsConfiguration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
-        corsConfiguration.setAllowCredentials(true);
-        UrlBasedCorsConfigurationSource corsConfigurationSource = new UrlBasedCorsConfigurationSource();
-        corsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
-        return corsConfigurationSource;
     }
 }

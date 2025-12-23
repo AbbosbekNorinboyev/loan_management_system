@@ -6,13 +6,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import uz.brb.loan_management_system.dto.Response;
-import uz.brb.loan_management_system.dto.request.LoanRequest;
-import uz.brb.loan_management_system.entity.Loan;
+import uz.brb.loan_management_system.dto.request.LoanApplicationRequest;
+import uz.brb.loan_management_system.entity.LoanApplication;
 import uz.brb.loan_management_system.exception.ResourceNotFoundException;
 import uz.brb.loan_management_system.mapper.LoanMapper;
-import uz.brb.loan_management_system.mapper.interfaces.LoanMapperInterface;
-import uz.brb.loan_management_system.repository.LoanRepository;
-import uz.brb.loan_management_system.service.LoanService;
+import uz.brb.loan_management_system.repository.LoanApplicationRepository;
+import uz.brb.loan_management_system.service.LoanApplicationService;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -21,42 +20,41 @@ import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
 
 @Service
 @RequiredArgsConstructor
-public class LoanServiceImpl implements LoanService {
-    private final LoanRepository loanRepository;
+public class LoanApplicationServiceImpl implements LoanApplicationService {
+    private final LoanApplicationRepository loanApplicationRepository;
     private final LoanMapper loanMapper;
-    private final LoanMapperInterface loanMapperInterface;
-    private static final Logger logger = LoggerFactory.getLogger(LoanServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(LoanApplicationServiceImpl.class);
 
     @Override
-    public Response createLoan(LoanRequest loanRequest) {
-        Loan loan = loanMapper.toEntity(loanRequest);
+    public Response createLoan(LoanApplicationRequest loanApplicationRequest) {
+        LoanApplication loanApplication = loanMapper.toEntity(loanApplicationRequest);
         logger.info("Loan successfully saved");
-        loanRepository.save(loan);
+        loanApplicationRepository.save(loanApplication);
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Loan successfully saved")
                 .success(true)
-                .data(loanMapper.toResponse(loan))
+                .data(loanMapper.toResponse(loanApplication))
                 .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
     @Override
     public Response getLoan(Long loanId) {
-        Loan loan = loanRepository.findById(loanId)
+        LoanApplication loanApplication = loanApplicationRepository.findById(loanId)
                 .orElseThrow(() -> new ResourceNotFoundException("Loan not found: " + loanId));
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Loan successfully found")
                 .success(true)
-                .data(loanMapperInterface.toLoanResponse(loan))
+                .data(loanMapper.toResponse(loanApplication))
                 .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
 
     @Override
     public Response getAllLoan() {
-        List<Loan> loans = loanRepository.findAll();
+        List<LoanApplication> loans = loanApplicationRepository.findAll();
         logger.info("Loan list successfully found");
         return Response.builder()
                 .code(HttpStatus.OK.value())
@@ -68,14 +66,14 @@ public class LoanServiceImpl implements LoanService {
     }
 
     @Override
-    public Response updateLoan(LoanRequest loanRequest, Long loanId) {
-        Loan loan = loanRepository.findById(loanId)
+    public Response updateLoan(LoanApplicationRequest loanApplicationRequest, Long loanId) {
+        LoanApplication loan = loanApplicationRepository.findById(loanId)
                 .orElseThrow(() -> new ResourceNotFoundException("Loan not found: " + loanId));
-        loanMapper.update(loan, loanRequest);
-        loanRepository.save(loan);
+        loanMapper.update(loan, loanApplicationRequest);
+        loanApplicationRepository.save(loan);
         return Response.builder()
                 .code(HttpStatus.OK.value())
-                .message("Loan successfully updated")
+                .message("LoanApplication successfully updated")
                 .success(true)
                 .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>uz.pdp</groupId>
-	<artifactId>loan-management-system</artifactId>
+	<artifactId>loanApplication-management-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>loan-management-system</name>
+	<name>loanApplication-management-system</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
