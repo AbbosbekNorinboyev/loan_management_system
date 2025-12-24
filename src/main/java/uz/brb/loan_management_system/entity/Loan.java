@@ -14,9 +14,9 @@ import java.math.BigDecimal;
 @Setter
 @ToString
 public class Loan {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "loan_id_seq")
+    @SequenceGenerator(name = "loan_id_seq", sequenceName = "loan_id_seq", allocationSize = 1)
     private Long id;
 
     @OneToOne

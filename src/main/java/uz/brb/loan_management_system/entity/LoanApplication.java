@@ -16,8 +16,10 @@ import java.time.LocalDateTime;
 @ToString
 public class LoanApplication {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "loan_application_id_seq")
+    @SequenceGenerator(name = "loan_application_id_seq", sequenceName = "loan_application_id_seq", allocationSize = 1)
     private Long id;
+
     private BigDecimal requestedAmount;
     private Integer tenureMonths;
 

@@ -17,8 +17,10 @@ import java.math.BigDecimal;
 @Table(name = "card")
 public class Card {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "card_id_seq")
+    @SequenceGenerator(name = "card_id_seq", sequenceName = "card_id_seq", allocationSize = 1)
     private Long id;
+
     private String cardNumber;
     private String cardHolder;
     private String expiryDate;

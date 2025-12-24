@@ -15,7 +15,8 @@ import java.time.LocalDateTime;
 @ToString
 public class History {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "history_id_seq")
+    @SequenceGenerator(name = "history_id_seq", sequenceName = "history_id_seq", allocationSize = 1)
     private Long id;
 
     @ManyToOne
