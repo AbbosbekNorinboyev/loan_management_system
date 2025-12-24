@@ -1,6 +1,5 @@
 package uz.brb.loan_management_system.mapper;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import uz.brb.loan_management_system.dto.request.LoanApplicationRequest;
 import uz.brb.loan_management_system.dto.response.LoanApplicationResponse;
@@ -10,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@RequiredArgsConstructor
 public class LoanApplicationMapper {
     public LoanApplication toEntity(LoanApplicationRequest loanApplicationRequest) {
         LoanApplication loanApplication = new LoanApplication();

@@ -16,14 +16,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import uz.brb.loan_management_system.dto.Response;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
 
 import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
 
@@ -60,6 +55,7 @@ public class SecurityConfig {
                                     "/actuator/**").permitAll()
                             .requestMatchers(
                                     "/api/v1/loans/**",
+                                    "/api/v1/loan-applications/**",
                                     "/api/v1/accounts/**",
                                     "/api/v1/clients/**",
                                     "/api/v1/cards/**",

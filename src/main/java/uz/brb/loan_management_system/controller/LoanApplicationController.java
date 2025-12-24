@@ -7,7 +7,7 @@ import uz.brb.loan_management_system.dto.request.LoanApplicationRequest;
 import uz.brb.loan_management_system.service.LoanApplicationService;
 
 @RestController
-@RequestMapping("/api/v1/loans")
+@RequestMapping("/api/v1/loan-applications")
 @RequiredArgsConstructor
 public class LoanApplicationController {
     private final LoanApplicationService loanApplicationService;
