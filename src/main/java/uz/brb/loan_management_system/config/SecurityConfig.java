@@ -58,8 +58,10 @@ public class SecurityConfig {
                                     "/api/v1/loan-applications/**",
                                     "/api/v1/accounts/**",
                                     "/api/v1/clients/**",
-                                    "/api/v1/cards/**",
-                                    "/api/v1/transactions/**").hasRole("ADMIN")
+                                    "/api/cards/**",
+                                    "/api/v1/transactions/**",
+                                    "/api/v1/histories/**"
+                                    ).hasRole("ADMIN")
                             .anyRequest().authenticated();
                 })
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)

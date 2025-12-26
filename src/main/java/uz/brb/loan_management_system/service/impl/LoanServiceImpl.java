@@ -7,11 +7,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import uz.brb.loan_management_system.dto.Response;
 import uz.brb.loan_management_system.dto.request.LoanRequest;
+import uz.brb.loan_management_system.entity.AuthUser;
 import uz.brb.loan_management_system.entity.Loan;
 import uz.brb.loan_management_system.entity.LoanApplication;
 import uz.brb.loan_management_system.enums.LoanStatus;
 import uz.brb.loan_management_system.exception.ResourceNotFoundException;
 import uz.brb.loan_management_system.mapper.LoanMapper;
+import uz.brb.loan_management_system.repository.AuthUserRepository;
 import uz.brb.loan_management_system.repository.LoanApplicationRepository;
 import uz.brb.loan_management_system.repository.LoanRepository;
 import uz.brb.loan_management_system.service.LoanService;
@@ -27,16 +29,21 @@ public class LoanServiceImpl implements LoanService {
     private final LoanRepository loanRepository;
     private final LoanMapper loanMapper;
     private final LoanApplicationRepository loanApplicationRepository;
+    private final AuthUserRepository authUserRepository;
     private static final Logger logger = LoggerFactory.getLogger(LoanServiceImpl.class);
 
     @Override
     public Response createLoan(LoanRequest loanRequest) {
+        AuthUser authUser = authUserRepository.findById(loanRequest.getUserId())
+                .orElseThrow(() -> new ResourceNotFoundException("User not found: " + loanRequest.getUserId()));
+
         LoanApplication loanApplication = loanApplicationRepository.findById(loanRequest.getLoanApplicationId())
                 .orElseThrow(() -> new ResourceNotFoundException("Loan Application Not Found: " + loanRequest.getLoanApplicationId()));
 
         Loan loan = loanMapper.toEntity(loanRequest);
         loan.setApplication(loanApplication);
         loan.setStatus(LoanStatus.CREATED);
+        loan.setAuthUser(authUser);
         logger.info("Loan successfully saved");
         loanRepository.save(loan);
 

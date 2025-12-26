@@ -18,4 +18,5 @@ public class LoanRequest {
     private Integer tenureMonths;
     private BigDecimal outstandingAmount;
     private LoanStatus status;
+    private Long userId;
 }

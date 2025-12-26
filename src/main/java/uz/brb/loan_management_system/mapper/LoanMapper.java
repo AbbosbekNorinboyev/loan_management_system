@@ -28,6 +28,7 @@ public class LoanMapper {
                 .tenureMonths(loan.getTenureMonths())
                 .outstandingAmount(loan.getOutstandingAmount())
                 .status(loan.getStatus())
+                .userId(loan.getAuthUser() != null ? loan.getAuthUser().getId() : null)
                 .build();
     }
 

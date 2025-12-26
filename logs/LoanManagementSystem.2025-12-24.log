@@ -1,34 +1,32 @@
-2025-12-26 15:03:16 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
-2025-12-26 15:03:16 [main] INFO  u.b.l.LoanManagementSystemApplication - Starting LoanManagementSystemApplication using Java 21.0.7 with PID 10596 (C:\Abbos\Spring Project\Test Projects\LoanManagementSystem\target\classes started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
-2025-12-26 15:03:16 [main] INFO  u.b.l.LoanManagementSystemApplication - The following 1 profile is active: "dev"
-2025-12-26 15:03:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-12-26 15:03:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-12-26 15:03:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 312 ms. Found 8 JPA repository interfaces.
-2025-12-26 15:03:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-12-26 15:03:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-12-26 15:03:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:03:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.AuthUserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:03:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.CardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:03:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.ClientRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:03:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.HistoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:03:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.LoanApplicationRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:03:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.LoanRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:03:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:03:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
-2025-12-26 15:03:21 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1195 (http)
-2025-12-26 15:03:21 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1195"]
-2025-12-26 15:03:21 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-12-26 15:03:21 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.49]
-2025-12-26 15:03:21 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-12-26 15:03:21 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4769 ms
-2025-12-26 15:03:21 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-12-26 15:03:22 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.36.Final
-2025-12-26 15:03:22 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-26 15:03:22 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-12-26 15:03:22 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-12-26 15:03:23 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7be6dabb
-2025-12-26 15:03:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-12-26 15:03:23 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2025-12-24 10:13:09 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2025-12-24 10:13:09 [main] INFO  u.b.l.LoanManagementSystemApplication - Starting LoanManagementSystemApplication using Java 21.0.7 with PID 8304 (C:\Abbos\Spring Project\Test Projects\LoanManagementSystem\target\classes started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
+2025-12-24 10:13:09 [main] INFO  u.b.l.LoanManagementSystemApplication - The following 1 profile is active: "dev"
+2025-12-24 10:13:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-24 10:13:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-24 10:13:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 295 ms. Found 6 JPA repository interfaces.
+2025-12-24 10:13:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-24 10:13:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-24 10:13:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-12-24 10:13:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.AuthUserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-12-24 10:13:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.CardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-12-24 10:13:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.ClientRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-12-24 10:13:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.LoanApplicationRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-12-24 10:13:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-12-24 10:13:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2025-12-24 10:13:13 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1195 (http)
+2025-12-24 10:13:13 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1195"]
+2025-12-24 10:13:13 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-24 10:13:13 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.49]
+2025-12-24 10:13:13 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-24 10:13:13 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3617 ms
+2025-12-24 10:13:13 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-24 10:13:14 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.36.Final
+2025-12-24 10:13:14 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-24 10:13:14 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-24 10:13:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-24 10:13:15 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6fe337a5
+2025-12-24 10:13:15 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-24 10:13:15 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 15.3
@@ -36,8 +34,8 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-12-26 15:03:25 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-26 15:03:25 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence account_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "account_id_seq" already exists]
+2025-12-24 10:13:18 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-24 10:13:19 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence account_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "account_id_seq" already exists]
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create sequence account_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "account_id_seq" already exists]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
@@ -177,7 +175,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "account_id_seq" a
 	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
 	... 123 common frames omitted
-2025-12-26 15:03:25 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence card_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "card_id_seq" already exists]
+2025-12-24 10:13:19 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence card_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "card_id_seq" already exists]
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create sequence card_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "card_id_seq" already exists]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
@@ -317,7 +315,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "card_id_seq" alre
 	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
 	... 123 common frames omitted
-2025-12-26 15:03:25 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence client_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "client_id_seq" already exists]
+2025-12-24 10:13:19 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence client_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "client_id_seq" already exists]
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create sequence client_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "client_id_seq" already exists]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
@@ -457,7 +455,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "client_id_seq" al
 	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
 	... 123 common frames omitted
-2025-12-26 15:03:25 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence history_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "history_id_seq" already exists]
+2025-12-24 10:13:19 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence history_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "history_id_seq" already exists]
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create sequence history_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "history_id_seq" already exists]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
@@ -597,7 +595,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "history_id_seq" a
 	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
 	... 123 common frames omitted
-2025-12-26 15:03:25 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence loan_application_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "loan_application_id_seq" already exists]
+2025-12-24 10:13:19 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence loan_application_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "loan_application_id_seq" already exists]
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create sequence loan_application_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "loan_application_id_seq" already exists]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
@@ -737,7 +735,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "loan_application_
 	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
 	... 123 common frames omitted
-2025-12-26 15:03:25 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence loan_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "loan_id_seq" already exists]
+2025-12-24 10:13:19 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence loan_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "loan_id_seq" already exists]
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create sequence loan_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "loan_id_seq" already exists]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
@@ -877,7 +875,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "loan_id_seq" alre
 	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
 	... 123 common frames omitted
-2025-12-26 15:03:25 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence transaction_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "transaction_id_seq" already exists]
+2025-12-24 10:13:19 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence transaction_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "transaction_id_seq" already exists]
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create sequence transaction_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "transaction_id_seq" already exists]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
@@ -1017,56 +1015,52 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "transaction_id_se
 	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
 	... 123 common frames omitted
-2025-12-26 15:03:25 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-12-26 15:03:26 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-12-26 15:03:27 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2025-12-26 15:03:28 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-12-26 15:03:28 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
-2025-12-26 15:03:29 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1195"]
-2025-12-26 15:03:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1195 (http) with context path '/'
-2025-12-26 15:03:29 [main] INFO  u.b.l.LoanManagementSystemApplication - Started LoanManagementSystemApplication in 13.966 seconds (process running for 16.408)
-2025-12-26 15:03:29 [RMI TCP Connection(10)-192.168.1.104] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-12-26 15:03:29 [RMI TCP Connection(10)-192.168.1.104] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-12-26 15:03:29 [RMI TCP Connection(10)-192.168.1.104] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
-2025-12-26 15:03:55 [http-nio-1195-exec-9] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 1271 ms
-2025-12-26 15:04:13 [http-nio-1195-exec-10] INFO  u.b.l.controller.AuthUserController - AuthUser successfully login
-2025-12-26 15:04:38 [http-nio-1195-exec-3] INFO  u.b.l.service.impl.LoanServiceImpl - Loan list successfully found
-2025-12-26 15:10:41 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-12-26 15:10:41 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-12-26 15:10:41 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-12-26 15:10:41 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-12-26 15:10:41 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-12-26 15:10:53 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
-2025-12-26 15:10:53 [main] INFO  u.b.l.LoanManagementSystemApplication - Starting LoanManagementSystemApplication using Java 21.0.7 with PID 4728 (C:\Abbos\Spring Project\Test Projects\LoanManagementSystem\target\classes started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
-2025-12-26 15:10:53 [main] INFO  u.b.l.LoanManagementSystemApplication - The following 1 profile is active: "dev"
-2025-12-26 15:10:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-12-26 15:10:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-12-26 15:10:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 233 ms. Found 8 JPA repository interfaces.
-2025-12-26 15:10:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2025-12-26 15:10:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-12-26 15:10:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:10:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.AuthUserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:10:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.CardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:10:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.ClientRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:10:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.HistoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:10:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.LoanApplicationRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:10:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.LoanRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:10:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2025-12-26 15:10:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
-2025-12-26 15:10:56 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1195 (http)
-2025-12-26 15:10:56 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1195"]
-2025-12-26 15:10:56 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-12-26 15:10:56 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.49]
-2025-12-26 15:10:56 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-12-26 15:10:56 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3135 ms
-2025-12-26 15:10:57 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-12-26 15:10:57 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.36.Final
-2025-12-26 15:10:57 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2025-12-26 15:10:57 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-12-26 15:10:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-12-26 15:10:58 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@736f2fb8
-2025-12-26 15:10:58 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-12-26 15:10:58 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2025-12-24 10:13:19 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-24 10:13:20 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-24 10:13:21 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-12-24 10:13:22 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-24 10:13:22 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+2025-12-24 10:13:24 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1195"]
+2025-12-24 10:13:24 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1195 (http) with context path '/'
+2025-12-24 10:13:24 [main] INFO  u.b.l.LoanManagementSystemApplication - Started LoanManagementSystemApplication in 15.895 seconds (process running for 18.822)
+2025-12-24 10:13:24 [RMI TCP Connection(6)-192.168.1.102] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-24 10:13:24 [RMI TCP Connection(6)-192.168.1.102] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-24 10:13:24 [RMI TCP Connection(6)-192.168.1.102] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2025-12-24 10:14:45 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-24 10:14:45 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-24 10:14:45 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-24 10:14:45 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-24 10:14:45 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-12-24 10:59:18 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2025-12-24 10:59:18 [main] INFO  u.b.l.LoanManagementSystemApplication - Starting LoanManagementSystemApplication using Java 21.0.7 with PID 2268 (C:\Abbos\Spring Project\Test Projects\LoanManagementSystem\target\classes started by norin in C:\Abbos\Spring Project\Test Projects\LoanManagementSystem)
+2025-12-24 10:59:18 [main] INFO  u.b.l.LoanManagementSystemApplication - The following 1 profile is active: "dev"
+2025-12-24 10:59:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-24 10:59:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-24 10:59:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 324 ms. Found 7 JPA repository interfaces.
+2025-12-24 10:59:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-12-24 10:59:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-12-24 10:59:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.AccountRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-12-24 10:59:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.AuthUserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-12-24 10:59:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.CardRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-12-24 10:59:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.ClientRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-12-24 10:59:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.LoanApplicationRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-12-24 10:59:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.LoanRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-12-24 10:59:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface uz.brb.loan_management_system.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-12-24 10:59:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2025-12-24 10:59:21 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1195 (http)
+2025-12-24 10:59:21 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1195"]
+2025-12-24 10:59:21 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-24 10:59:21 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.49]
+2025-12-24 10:59:21 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-24 10:59:21 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3476 ms
+2025-12-24 10:59:22 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-24 10:59:22 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.36.Final
+2025-12-24 10:59:22 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-12-24 10:59:22 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-24 10:59:22 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-12-24 10:59:23 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7730da00
+2025-12-24 10:59:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-12-24 10:59:23 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 15.3
@@ -1074,8 +1068,8 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "transaction_id_se
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-12-26 15:11:00 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-26 15:11:00 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence account_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "account_id_seq" already exists]
+2025-12-24 10:59:24 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-24 10:59:24 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence account_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "account_id_seq" already exists]
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create sequence account_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "account_id_seq" already exists]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
@@ -1215,7 +1209,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "account_id_seq" a
 	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
 	... 123 common frames omitted
-2025-12-26 15:11:00 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence card_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "card_id_seq" already exists]
+2025-12-24 10:59:24 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence card_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "card_id_seq" already exists]
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create sequence card_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "card_id_seq" already exists]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
@@ -1355,7 +1349,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "card_id_seq" alre
 	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
 	... 123 common frames omitted
-2025-12-26 15:11:00 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence client_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "client_id_seq" already exists]
+2025-12-24 10:59:24 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence client_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "client_id_seq" already exists]
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create sequence client_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "client_id_seq" already exists]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
@@ -1495,7 +1489,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "client_id_seq" al
 	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
 	... 123 common frames omitted
-2025-12-26 15:11:00 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence history_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "history_id_seq" already exists]
+2025-12-24 10:59:24 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence history_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "history_id_seq" already exists]
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create sequence history_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "history_id_seq" already exists]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
@@ -1635,7 +1629,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "history_id_seq" a
 	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
 	... 123 common frames omitted
-2025-12-26 15:11:00 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence loan_application_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "loan_application_id_seq" already exists]
+2025-12-24 10:59:24 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence loan_application_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "loan_application_id_seq" already exists]
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create sequence loan_application_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "loan_application_id_seq" already exists]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
@@ -1775,7 +1769,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "loan_application_
 	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
 	... 123 common frames omitted
-2025-12-26 15:11:00 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence loan_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "loan_id_seq" already exists]
+2025-12-24 10:59:24 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence loan_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "loan_id_seq" already exists]
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create sequence loan_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "loan_id_seq" already exists]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
@@ -1915,7 +1909,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "loan_id_seq" alre
 	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
 	... 123 common frames omitted
-2025-12-26 15:11:00 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence transaction_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "transaction_id_seq" already exists]
+2025-12-24 10:59:24 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create sequence transaction_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "transaction_id_seq" already exists]
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create sequence transaction_id_seq start with 1 increment by 1" via JDBC [ERROR: relation "transaction_id_seq" already exists]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
 	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
@@ -2055,26 +2049,27 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "transaction_id_se
 	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
 	... 123 common frames omitted
-2025-12-26 15:11:00 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-12-26 15:11:01 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-12-26 15:11:02 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2025-12-26 15:11:02 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-12-26 15:11:03 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
-2025-12-26 15:11:04 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1195"]
-2025-12-26 15:11:04 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1195 (http) with context path '/'
-2025-12-26 15:11:04 [main] INFO  u.b.l.LoanManagementSystemApplication - Started LoanManagementSystemApplication in 11.487 seconds (process running for 13.755)
-2025-12-26 15:11:25 [http-nio-1195-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-12-26 15:11:25 [http-nio-1195-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-12-26 15:11:25 [http-nio-1195-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 36 ms
-2025-12-26 15:11:49 [http-nio-1195-exec-9] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 15858 ms
-2025-12-26 15:12:20 [http-nio-1195-exec-10] INFO  u.b.l.controller.AuthUserController - AuthUser successfully login
-2025-12-26 15:12:45 [http-nio-1195-exec-6] INFO  u.b.l.service.impl.LoanServiceImpl - Loan list successfully found
-2025-12-26 15:13:18 [http-nio-1195-exec-4] INFO  u.b.l.service.impl.LoanServiceImpl - Loan successfully saved
-2025-12-26 15:13:19 [http-nio-1195-exec-4] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23505
-2025-12-26 15:13:19 [http-nio-1195-exec-4] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ERROR: duplicate key value violates unique constraint "ukjicve8xj5na2wex0dveoi6a5i"
-  Detail: Key (application_id)=(1) already exists.
-2025-12-26 15:17:01 [http-nio-1195-exec-9] INFO  u.b.l.s.i.LoanApplicationServiceImpl - Loan list successfully found
-2025-12-26 15:17:26 [http-nio-1195-exec-10] INFO  u.b.l.s.i.LoanApplicationServiceImpl - Loan successfully saved
-2025-12-26 15:17:38 [http-nio-1195-exec-2] INFO  u.b.l.s.i.LoanApplicationServiceImpl - Loan list successfully found
-2025-12-26 15:17:53 [http-nio-1195-exec-1] INFO  u.b.l.service.impl.LoanServiceImpl - Loan successfully saved
-2025-12-26 15:18:02 [http-nio-1195-exec-5] INFO  u.b.l.service.impl.LoanServiceImpl - Loan list successfully found
+2025-12-24 10:59:25 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-24 10:59:25 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-24 10:59:26 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-12-24 10:59:26 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-24 10:59:27 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+2025-12-24 10:59:28 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1195"]
+2025-12-24 10:59:28 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1195 (http) with context path '/'
+2025-12-24 10:59:28 [main] INFO  u.b.l.LoanManagementSystemApplication - Started LoanManagementSystemApplication in 11.266 seconds (process running for 13.234)
+2025-12-24 10:59:28 [RMI TCP Connection(5)-192.168.1.102] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-24 10:59:28 [RMI TCP Connection(5)-192.168.1.102] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-24 10:59:28 [RMI TCP Connection(5)-192.168.1.102] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-12-24 10:59:49 [http-nio-1195-exec-9] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 845 ms
+2025-12-24 11:00:46 [http-nio-1195-exec-1] INFO  u.b.l.controller.AuthUserController - AuthUser successfully login
+2025-12-24 11:00:57 [http-nio-1195-exec-7] INFO  u.b.l.service.impl.LoanServiceImpl - Loan list successfully found
+2025-12-24 11:02:06 [http-nio-1195-exec-6] INFO  u.b.l.s.i.LoanApplicationServiceImpl - Loan list successfully found
+2025-12-24 11:02:23 [http-nio-1195-exec-9] INFO  u.b.l.s.i.LoanApplicationServiceImpl - Loan successfully saved
+2025-12-24 11:02:30 [http-nio-1195-exec-10] INFO  u.b.l.s.i.LoanApplicationServiceImpl - Loan list successfully found
+2025-12-24 11:03:00 [http-nio-1195-exec-1] INFO  u.b.l.service.impl.LoanServiceImpl - Loan successfully saved
+2025-12-24 11:03:09 [http-nio-1195-exec-2] INFO  u.b.l.service.impl.LoanServiceImpl - Loan list successfully found
+2025-12-24 11:08:35 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-24 11:08:35 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-24 11:08:35 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-24 11:08:35 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-24 11:08:35 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

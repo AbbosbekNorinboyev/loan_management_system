@@ -32,4 +32,7 @@ public class Loan {
 
     @Enumerated(EnumType.STRING)
     private LoanStatus status; // ACTIVE, CLOSED, DEFAULTED
+
+    @ManyToOne
+    private AuthUser authUser;
 }

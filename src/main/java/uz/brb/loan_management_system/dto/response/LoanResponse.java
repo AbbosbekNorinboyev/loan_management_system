@@ -20,4 +20,5 @@ public class LoanResponse {
     private Integer tenureMonths;
     private BigDecimal outstandingAmount;
     private LoanStatus status;
+    private Long userId;
 }
