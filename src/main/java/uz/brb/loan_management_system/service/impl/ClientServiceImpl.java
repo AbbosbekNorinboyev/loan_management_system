@@ -78,6 +78,7 @@ public class ClientServiceImpl implements ClientService {
     public Response updateClient(ClientRequest clientRequest, Long clientId) {
         Client client = clientRepository.findById(clientId)
                 .orElseThrow(() -> new ResourceNotFoundException("Client not found: " + clientId));
+
         clientMapper.update(client, clientRequest);
         client.setUpdatedAt(LocalDateTime.now());
         clientRepository.save(client);

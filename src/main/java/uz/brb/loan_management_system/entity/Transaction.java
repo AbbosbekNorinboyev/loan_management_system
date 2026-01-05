@@ -22,6 +22,7 @@ public class Transaction {
 
     @Enumerated(EnumType.STRING)
     private TransactionType transactionType;
+
     private Double amount;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

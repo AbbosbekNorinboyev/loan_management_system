@@ -25,8 +25,10 @@ public class Card {
     private String cardHolder;
     private String expiryDate;
     private BigDecimal balance;
+
     @Enumerated(EnumType.STRING)
     private CardCurrency cardCurrency;
+
     @Enumerated(EnumType.STRING)
     private CardStatus cardStatus;
 }

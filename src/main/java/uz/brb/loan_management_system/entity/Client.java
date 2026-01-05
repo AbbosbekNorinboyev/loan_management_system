@@ -22,9 +22,11 @@ public class Client {
     private String name;
     private String email;
     private String phoneNumber;
+
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "auth_user_id")
     private AuthUser authUser;
+
     @CreationTimestamp
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

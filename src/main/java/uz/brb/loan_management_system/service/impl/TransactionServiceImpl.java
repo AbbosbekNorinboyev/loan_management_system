@@ -64,6 +64,7 @@ public class TransactionServiceImpl implements TransactionService {
     public Response getAllTransaction() {
         List<Transaction> transactions = transactionRepository.findAll();
         logger.info("Transaction list successfully found");
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Transaction list successfully saved")

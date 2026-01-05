@@ -19,6 +19,7 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "account_id_seq")
     @SequenceGenerator(name = "account_id_seq", sequenceName = "account_id_seq", allocationSize = 1)
     private Long id;
+
     private Double balance;
 
     @Enumerated(EnumType.STRING)
