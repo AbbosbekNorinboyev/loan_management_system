@@ -14,4 +14,14 @@ public interface AccountService {
     Response updateAccount(AccountRequest accountRequest, Long accountId);
 
     Response getAccountsGroupedByTypeStats(AccountType accountType);
+
+    Response withdraw(Long id, Double amount);
+
+    Response readTwice(Long id);
+
+    Response readTwiceRepeatable(Long id);
+
+    Response phantomTest();
+
+    Response serializableTest(Long id);
 }

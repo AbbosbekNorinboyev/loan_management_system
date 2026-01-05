@@ -1,10 +1,13 @@
 package uz.brb.loan_management_system.service.impl;
 
+import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import uz.brb.loan_management_system.dto.LoanDto;
 import uz.brb.loan_management_system.dto.Response;
 import uz.brb.loan_management_system.dto.request.AccountRequest;
@@ -28,6 +31,7 @@ public class AccountServiceImpl implements AccountService {
     private final AccountMapper accountMapper;
     private final AccountRepository accountRepository;
     private final AuthUserRepository authUserRepository;
+    private final EntityManager entityManager;
     private static final Logger logger = LoggerFactory.getLogger(AccountServiceImpl.class);
 
     @Override
@@ -106,6 +110,133 @@ public class AccountServiceImpl implements AccountService {
                 .message("Account successfully found")
                 .success(true)
                 .data(loanDtoList)
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
+                .build();
+    }
+
+    @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
+    public Response withdraw(Long id, Double amount) {
+        // START
+        Account account = accountRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Account not found: " + id));
+        System.out.println("START balance = " + account.getBalance());
+
+        if (account.getBalance() < amount) {
+            throw new RuntimeException("Not enough balance");
+        }
+
+        // PROCESS
+        account.setBalance(account.getBalance() - amount);
+        account.setUpdatedAt(LocalDateTime.now());
+        accountRepository.saveAndFlush(account);
+
+        sleep(5000); // boshqa transaction aralashishi uchun
+
+        // FINISH
+        System.out.println("FINISH balance = " + account.getBalance());
+
+        return Response.builder()
+                .code(HttpStatus.OK.value())
+                .message("Money withdraw successfully")
+                .success(true)
+                .data(accountMapper.toResponse(account))
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
+                .build();
+    }
+
+    private void sleep(long ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (Exception ignored) {
+        }
+    }
+
+    // Bitta transaction ichida bir xil SELECT har xil natija berishini ko‘rish.
+    @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
+    public Response readTwice(Long id) {
+        Account a1 = accountRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Account not found: " + id));
+        System.out.println("First read = " + a1.getBalance());
+
+        sleep(5000);
+
+        entityManager.clear();
+
+        Account a2 = accountRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Account not found: " + id));
+        System.out.println("Second read = " + a2.getBalance());
+
+        return Response.builder()
+                .code(HttpStatus.OK.value())
+                .message("Second read successfully")
+                .success(true)
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
+                .build();
+    }
+
+    // Barqaror o'qish
+    @Override
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
+    public Response readTwiceRepeatable(Long id) {
+        Account a1 = accountRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Account not found: " + id));
+        System.out.println("First = " + a1.getBalance());
+
+        sleep(5000);
+
+        Account a2 = accountRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Account not found: " + id));
+        System.out.println("Second = " + a2.getBalance());
+
+        return Response.builder()
+                .code(HttpStatus.OK.value())
+                .message("Second read successfully")
+                .success(true)
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
+                .build();
+    }
+
+    @Override
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
+    public Response phantomTest() {
+        List<Account> list1 = accountRepository.findAll();
+        System.out.println("Count1 = " + list1.size());
+
+        sleep(5000);  // bu vaqt ichida boshqa transaction yangi row qo‘shishi mumkin
+
+        // CLEAR persistence context to force DB read (Hibernate cache sababli)
+        entityManager.clear(); // agar EntityManager qo‘shilgan bo‘lsa
+
+        List<Account> list2 = accountRepository.findAll();
+        System.out.println("Count2 = " + list2.size());
+
+        return Response.builder()
+                .code(HttpStatus.OK.value())
+                .message("Phantom read test done")
+                .success(true)
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
+                .build();
+    }
+
+    @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
+    public Response serializableTest(Long id) {
+        Account account = accountRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Account not found: " + id));
+
+        if (account.getBalance() < 101) {
+            throw new RuntimeException("Not enough balance");
+        }
+
+        account.setBalance(account.getBalance() - 100);
+        accountRepository.saveAndFlush(account);
+
+        return Response.builder()
+                .code(HttpStatus.OK.value())
+                .message("Balance successfully updated with SERIALIZABLE isolation")
+                .success(true)
                 .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }

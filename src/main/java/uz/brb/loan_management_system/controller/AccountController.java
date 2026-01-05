@@ -38,4 +38,30 @@ public class AccountController {
     public Response getAccountByAccountType(@RequestParam(value = "accountType", required = false) AccountType accountType) {
         return accountService.getAccountsGroupedByTypeStats(accountType);
     }
+
+    @PostMapping("/withdraw")
+    public Response withdraw(@RequestParam Long id,
+                             @RequestParam Double amount) {
+        return accountService.withdraw(id, amount);
+    }
+
+    @GetMapping("/read-twice")
+    public Response readTwice(@RequestParam Long id) {
+        return accountService.readTwice(id);
+    }
+
+    @GetMapping("/read-twice-repeatable")
+    public Response readTwiceRepeatable(@RequestParam Long id) {
+        return accountService.readTwiceRepeatable(id);
+    }
+
+    @GetMapping("/phantom-test")
+    public Response phantomTest() {
+        return accountService.phantomTest();
+    }
+
+    @PostMapping("/serializable-test")
+    public Response serializableTest(@RequestParam Long id) {
+        return accountService.serializableTest(id);
+    }
 }
