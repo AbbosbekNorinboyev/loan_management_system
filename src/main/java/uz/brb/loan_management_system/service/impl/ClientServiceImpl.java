@@ -64,6 +64,7 @@ public class ClientServiceImpl implements ClientService {
     public Response getAllClient() {
         List<Client> clients = clientRepository.findAll();
         logger.info("Client list successfully found");
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Client list successfully found")
@@ -80,6 +81,7 @@ public class ClientServiceImpl implements ClientService {
         clientMapper.update(client, clientRequest);
         client.setUpdatedAt(LocalDateTime.now());
         clientRepository.save(client);
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Client successfully updated")

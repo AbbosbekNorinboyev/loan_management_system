@@ -55,6 +55,7 @@ public class UserServiceImpl implements UserService {
     public Response getAll(Pageable pageable) {
         List<AuthUser> users = authUserRepository.findAll(pageable).getContent();
         redisCacheService.saveData(CACHE_KEY, users, 10, TimeUnit.MINUTES);
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .status(HttpStatus.OK)
@@ -68,8 +69,10 @@ public class UserServiceImpl implements UserService {
     public Response update(UserDto userDto) {
         AuthUser authUser = authUserRepository.findById(userDto.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("AuthUser not found: " + userDto.getId()));
+
         userMapper.update(authUser, userDto);
         authUserRepository.save(authUser);
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .status(HttpStatus.OK)
@@ -85,6 +88,7 @@ public class UserServiceImpl implements UserService {
                     .message("USER IS NULL")
                     .build();
         }
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("AuthUser successfully found")
@@ -106,6 +110,7 @@ public class UserServiceImpl implements UserService {
                     )
             );
         }
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .status(HttpStatus.OK)
@@ -133,6 +138,7 @@ public class UserServiceImpl implements UserService {
         query.where(predicates.toArray(new Predicate[0]));
 
         List<AuthUser> authUsers = entityManager.createQuery(query).getResultList();
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .status(HttpStatus.OK)

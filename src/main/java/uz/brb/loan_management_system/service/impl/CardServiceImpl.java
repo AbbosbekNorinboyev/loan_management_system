@@ -30,6 +30,7 @@ public class CardServiceImpl implements CardService {
         card.setCardStatus(CardStatus.ACTIVE);
         card.setCardCurrency(CardCurrency.UZS);
         cardRepository.save(card);
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .status(HttpStatus.OK)
@@ -72,6 +73,7 @@ public class CardServiceImpl implements CardService {
                 .orElseThrow(() -> new ResourceNotFoundException("Card not found: " + id));
         cardMapper.update(card, request);
         cardRepository.save(card);
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .status(HttpStatus.OK)
@@ -86,6 +88,7 @@ public class CardServiceImpl implements CardService {
         Card card = cardRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Card not found: " + id));
         cardRepository.delete(card);
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .status(HttpStatus.OK)

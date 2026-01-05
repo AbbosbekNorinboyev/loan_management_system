@@ -73,6 +73,7 @@ public class LoanServiceImpl implements LoanService {
     public Response getAllLoan() {
         List<Loan> loans = loanRepository.findAll();
         logger.info("Loan list successfully found");
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("Loan list successfully found")
@@ -86,8 +87,10 @@ public class LoanServiceImpl implements LoanService {
     public Response updateLoan(LoanRequest loanRequest, Long loanId) {
         Loan loan = loanRepository.findById(loanId)
                 .orElseThrow(() -> new ResourceNotFoundException("Loan not found: " + loanId));
+
         loanMapper.update(loan, loanRequest);
         loanRepository.save(loan);
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("LoanApplication successfully updated")

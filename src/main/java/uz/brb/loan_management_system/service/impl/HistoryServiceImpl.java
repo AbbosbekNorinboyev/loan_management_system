@@ -33,6 +33,7 @@ public class HistoryServiceImpl implements HistoryService {
         History history = historyMapper.toEntity(request);
         history.setLoan(loan);
         historyRepository.save(history);
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .status(HttpStatus.OK)

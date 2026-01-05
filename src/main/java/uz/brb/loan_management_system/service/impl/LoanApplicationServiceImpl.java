@@ -78,8 +78,10 @@ public class LoanApplicationServiceImpl implements LoanApplicationService {
     public Response updateLoan(LoanApplicationRequest loanApplicationRequest, Long loanId) {
         LoanApplication loan = loanApplicationRepository.findById(loanId)
                 .orElseThrow(() -> new ResourceNotFoundException("Loan not found: " + loanId));
+
         loanApplicationMapper.update(loan, loanApplicationRequest);
         loanApplicationRepository.save(loan);
+
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .message("LoanApplication successfully updated")
