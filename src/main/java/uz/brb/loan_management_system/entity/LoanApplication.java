@@ -20,7 +20,7 @@ public class LoanApplication {
     @SequenceGenerator(name = "loan_application_id_seq", sequenceName = "loan_application_id_seq", allocationSize = 1)
     private Long id;
 
-    private BigDecimal requestedAmount;
+    private BigDecimal amount;
     private Integer tenureMonths;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

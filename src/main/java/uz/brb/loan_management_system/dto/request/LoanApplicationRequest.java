@@ -13,8 +13,8 @@ import java.math.BigDecimal;
 @Setter
 @ToString
 public class LoanApplicationRequest {
-    @NotBlank(message = "requestedAmount can not be null or empty")
-    private BigDecimal requestedAmount;
+    @NotBlank(message = "amount can not be null or empty")
+    private BigDecimal amount;
 
     private Integer tenureMonths;
 

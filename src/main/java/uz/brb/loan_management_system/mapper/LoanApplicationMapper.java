@@ -12,7 +12,7 @@ import java.util.List;
 public class LoanApplicationMapper {
     public LoanApplication toEntity(LoanApplicationRequest loanApplicationRequest) {
         LoanApplication loanApplication = new LoanApplication();
-        loanApplication.setRequestedAmount(loanApplicationRequest.getRequestedAmount());
+        loanApplication.setAmount(loanApplicationRequest.getAmount());
         loanApplication.setTenureMonths(loanApplicationRequest.getTenureMonths());
         loanApplication.setStatus(loanApplicationRequest.getStatus());
         return loanApplication;
@@ -21,7 +21,7 @@ public class LoanApplicationMapper {
     public LoanApplicationResponse toResponse(LoanApplication loanApplication) {
         return LoanApplicationResponse.builder()
                 .id(loanApplication.getId())
-                .requestedAmount(loanApplication.getRequestedAmount())
+                .amount(loanApplication.getAmount())
                 .tenureMonths(loanApplication.getTenureMonths())
                 .status(loanApplication.getStatus())
                 .authUserId(loanApplication.getAuthUser().getId())
@@ -39,8 +39,8 @@ public class LoanApplicationMapper {
         if (request == null) {
             return;
         }
-        if (request.getRequestedAmount() != null) {
-            entity.setRequestedAmount(request.getRequestedAmount());
+        if (request.getAmount() != null) {
+            entity.setAmount(request.getAmount());
         }
         if (request.getTenureMonths() != null) {
             entity.setTenureMonths(request.getTenureMonths());

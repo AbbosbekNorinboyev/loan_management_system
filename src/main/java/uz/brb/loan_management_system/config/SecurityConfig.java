@@ -52,7 +52,9 @@ public class SecurityConfig {
                                     "/api/auths/**",
                                     "/api/users/**",
                                     "/webjars/**",
-                                    "/actuator/**").permitAll()
+                                    "/actuator/**",
+                                    "/api/apiLogs/getAll"
+                                    ).permitAll()
                             .requestMatchers(
                                     "/api/v1/loans/**",
                                     "/api/v1/loan-applications/**",

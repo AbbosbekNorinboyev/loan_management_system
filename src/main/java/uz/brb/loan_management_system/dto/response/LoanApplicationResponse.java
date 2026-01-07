@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @ToString
 public class LoanApplicationResponse {
     private Long id;
-    private BigDecimal requestedAmount;
+    private BigDecimal amount;
     private Integer tenureMonths;
     private LoanApplicationStatus status;
     private Long authUserId;
