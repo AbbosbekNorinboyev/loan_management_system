@@ -240,4 +240,17 @@ public class AccountServiceImpl implements AccountService {
                 .timestamp(localDateTimeFormatter(LocalDateTime.now()))
                 .build();
     }
+
+    @Override
+    @Transactional
+    public Response withdraw2(Long id, Double amount) {
+        Account account = accountRepository.findAccountForUpdate(id);
+        account.setBalance(account.getBalance() - amount);
+        return Response.builder()
+                .code(HttpStatus.OK.value())
+                .message("Balance successfully updated with pessimistic lock")
+                .success(true)
+                .timestamp(localDateTimeFormatter(LocalDateTime.now()))
+                .build();
+    }
 }

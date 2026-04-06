@@ -64,4 +64,10 @@ public class AccountController {
     public Response serializableTest(@RequestParam Long id) {
         return accountService.serializableTest(id);
     }
+
+    @PostMapping("/withdraw2")
+    public Response withdraw2(@RequestParam Long id,
+                              @RequestParam Double amount) {
+        return accountService.withdraw2(id, amount);
+    }
 }

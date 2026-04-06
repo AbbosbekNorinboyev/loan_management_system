@@ -1,6 +1,8 @@
 package uz.brb.loan_management_system.repository;
 
+import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import uz.brb.loan_management_system.entity.Account;
@@ -18,4 +20,8 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
             "GROUP BY a.account_type",
             nativeQuery = true)
     List<Object[]> findAccountByAccountType(String accountType);
+
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
+    @Query("select a from Account a where a.id = :id")
+    Account findAccountForUpdate(Long id);
 }

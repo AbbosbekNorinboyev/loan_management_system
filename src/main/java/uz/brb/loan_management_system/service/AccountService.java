@@ -24,4 +24,6 @@ public interface AccountService {
     Response phantomTest();
 
     Response serializableTest(Long id);
+
+    Response withdraw2(Long id, Double amount);
 }
