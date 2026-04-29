@@ -18,7 +18,7 @@ public class HistoryController {
     }
 
     @GetMapping("/getAll")
-    public Response getAll() {
-        return historyService.getAllHistory();
+    public Response getAll(@RequestParam(value = "loanId", required = false) Long loanId) {
+        return historyService.getAllHistory(loanId);
     }
 }

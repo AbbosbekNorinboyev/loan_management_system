@@ -1,6 +1,8 @@
 package uz.brb.loan_management_system.service.impl;
 
+import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import uz.brb.loan_management_system.dto.Response;
@@ -14,6 +16,7 @@ import uz.brb.loan_management_system.repository.LoanRepository;
 import uz.brb.loan_management_system.service.HistoryService;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import static uz.brb.loan_management_system.util.Util.localDateTimeFormatter;
@@ -44,8 +47,15 @@ public class HistoryServiceImpl implements HistoryService {
     }
 
     @Override
-    public Response getAllHistory() {
-        List<History> histories = historyRepository.findAll();
+    public Response getAllHistory(Long loanId) {
+        Specification<History> spec = (root, q, cb) -> {
+            List<Predicate> predicates = new ArrayList<>();
+            if (loanId != null) {
+                predicates.add(cb.equal(root.get("loan").get("id"), loanId));
+            }
+            return cb.and(predicates.toArray(new Predicate[0]));
+        };
+        List<History> histories = historyRepository.findAll(spec);
         return Response.builder()
                 .code(HttpStatus.OK.value())
                 .status(HttpStatus.OK)

@@ -6,5 +6,5 @@ import uz.brb.loan_management_system.dto.request.HistoryRequest;
 public interface HistoryService {
     Response create(HistoryRequest request);
 
-    Response getAllHistory();
+    Response getAllHistory(Long loanId);
 }
