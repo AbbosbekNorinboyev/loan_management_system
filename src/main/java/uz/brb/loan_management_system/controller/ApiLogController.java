@@ -2,12 +2,15 @@ package uz.brb.loan_management_system.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import uz.brb.loan_management_system.dto.Response;
 import uz.brb.loan_management_system.service.ApiLogService;
+
+import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/api/apiLogs")
@@ -17,7 +20,15 @@ public class ApiLogController {
 
     @GetMapping("/getAll")
     public Response getAll(@RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
-                           @RequestParam(value = "size", required = false, defaultValue = "10") Integer size) {
-        return apiLogService.getAll(PageRequest.of(page, size));
+                           @RequestParam(value = "size", required = false, defaultValue = "10") Integer size,
+
+                           @RequestParam(required = false)
+                           @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SS")
+                           LocalDateTime from,
+
+                           @RequestParam(required = false)
+                           @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SS")
+                           LocalDateTime to) {
+        return apiLogService.getAll(PageRequest.of(page, size), from, to);
     }
 }

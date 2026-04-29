@@ -8,5 +8,5 @@ import java.time.LocalDateTime;
 public interface ApiLogService {
     Response saveLog(String username, String method, String path, LocalDateTime time, long duration);
 
-    Response getAll(Pageable pageable);
+    Response getAll(Pageable pageable, LocalDateTime from, LocalDateTime to);
 }

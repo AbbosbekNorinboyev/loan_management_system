@@ -1,7 +1,9 @@
 package uz.brb.loan_management_system.service.impl;
 
+import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import uz.brb.loan_management_system.dto.Response;
@@ -11,6 +13,7 @@ import uz.brb.loan_management_system.service.ApiLogService;
 import uz.brb.loan_management_system.service.logic.RedisCacheService;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -47,8 +50,21 @@ public class ApiLogServiceImpl implements ApiLogService {
     }
 
     @Override
-    public Response getAll(Pageable pageable) {
-        List<ApiLog> apiLogs = apiLogRepository.findAll(pageable).getContent();
+    public Response getAll(Pageable pageable, LocalDateTime from, LocalDateTime to) {
+        Specification<ApiLog> spec = (root, query, cb) -> {
+            List<Predicate> predicates = new ArrayList<>();
+
+            if (from != null) {
+                predicates.add(cb.greaterThanOrEqualTo(root.get("timestamp"), from));
+            }
+
+            if (to != null) {
+                predicates.add(cb.lessThanOrEqualTo(root.get("timestamp"), to));
+            }
+
+            return cb.and(predicates.toArray(new Predicate[0]));
+        };
+        List<ApiLog> apiLogs = apiLogRepository.findAll(spec, pageable).getContent();
         redisCacheService.saveData(CACHE_KEY, apiLogs, 10, TimeUnit.MINUTES);
         Object data = redisCacheService.getData(CACHE_KEY);
         return Response.builder()
