@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import uz.brb.loan_management_system.dto.Response;
 import uz.brb.loan_management_system.dto.request.LoanRequest;
 import uz.brb.loan_management_system.entity.AuthUser;
@@ -57,6 +58,7 @@ public class LoanServiceImpl implements LoanService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getLoan(Long loanId) {
         Loan loan = loanRepository.findById(loanId)
                 .orElseThrow(() -> new ResourceNotFoundException("Loan not found: " + loanId));
@@ -70,6 +72,7 @@ public class LoanServiceImpl implements LoanService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getAllLoan() {
         List<Loan> loans = loanRepository.findAll();
         logger.info("Loan list successfully found");

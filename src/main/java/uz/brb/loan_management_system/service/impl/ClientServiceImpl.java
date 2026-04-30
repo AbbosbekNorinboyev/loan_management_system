@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import uz.brb.loan_management_system.dto.Response;
 import uz.brb.loan_management_system.dto.request.ClientRequest;
 import uz.brb.loan_management_system.entity.AuthUser;
@@ -48,6 +49,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getClient(Long clientId) {
         Client client = clientRepository.findById(clientId)
                 .orElseThrow(() -> new ResourceNotFoundException("Client not found: " + clientId));
@@ -61,6 +63,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getAllClient() {
         List<Client> clients = clientRepository.findAll();
         logger.info("Client list successfully found");
@@ -92,6 +95,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getClientByPhoneNumber(String phoneNumber) {
         Client client = clientRepository.findByPhoneNumber(phoneNumber);
         return Response.builder()

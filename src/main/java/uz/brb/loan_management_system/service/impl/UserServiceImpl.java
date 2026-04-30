@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import uz.brb.loan_management_system.dto.Response;
 import uz.brb.loan_management_system.dto.ShortDto;
 import uz.brb.loan_management_system.dto.UserDto;
@@ -38,6 +39,7 @@ public class UserServiceImpl implements UserService {
     private static final String CACHE_KEY = "usersLoan";
 
     @Override
+    @Transactional(readOnly = true)
     public Response get(Long id) {
         AuthUser authUser = authUserRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("AuthUser not found: " + id));
@@ -52,6 +54,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getAll(Pageable pageable) {
         List<AuthUser> users = authUserRepository.findAll(pageable).getContent();
         redisCacheService.saveData(CACHE_KEY, users, 10, TimeUnit.MINUTES);

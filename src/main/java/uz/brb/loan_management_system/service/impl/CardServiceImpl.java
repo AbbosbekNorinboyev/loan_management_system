@@ -3,6 +3,7 @@ package uz.brb.loan_management_system.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import uz.brb.loan_management_system.dto.request.CardRequest;
 import uz.brb.loan_management_system.dto.Response;
 import uz.brb.loan_management_system.entity.Card;
@@ -41,6 +42,7 @@ public class CardServiceImpl implements CardService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getCard(Long id) {
         Card card = cardRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Card not found: " + id));
@@ -55,6 +57,7 @@ public class CardServiceImpl implements CardService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getAllCard() {
         List<Card> cards = cardRepository.findAll();
         return Response.builder()

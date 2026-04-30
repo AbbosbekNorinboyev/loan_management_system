@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import uz.brb.loan_management_system.dto.Response;
 import uz.brb.loan_management_system.dto.request.TransactionRequest;
 import uz.brb.loan_management_system.entity.Account;
@@ -48,6 +49,7 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getTransaction(Long transactionId) {
         Transaction transaction = transactionRepository.findById(transactionId)
                 .orElseThrow(() -> new ResourceNotFoundException("Transaction not found: " + transactionId));
@@ -61,6 +63,7 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getAllTransaction() {
         List<Transaction> transactions = transactionRepository.findAll();
         logger.info("Transaction list successfully found");
@@ -75,6 +78,7 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getTransactionByAccountId(Long accountId) {
         List<Transaction> allByAccountId = transactionRepository.findAllByAccountId(accountId);
         return Response.builder()

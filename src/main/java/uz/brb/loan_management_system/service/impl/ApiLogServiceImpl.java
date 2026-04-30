@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import uz.brb.loan_management_system.dto.Response;
 import uz.brb.loan_management_system.entity.ApiLog;
 import uz.brb.loan_management_system.repository.ApiLogRepository;
@@ -50,6 +51,7 @@ public class ApiLogServiceImpl implements ApiLogService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getAll(Pageable pageable, LocalDateTime from, LocalDateTime to) {
         Specification<ApiLog> spec = (root, query, cb) -> {
             List<Predicate> predicates = new ArrayList<>();

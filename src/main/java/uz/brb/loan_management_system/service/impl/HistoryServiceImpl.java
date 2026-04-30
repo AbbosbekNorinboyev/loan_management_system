@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import uz.brb.loan_management_system.dto.Response;
 import uz.brb.loan_management_system.dto.request.HistoryRequest;
 import uz.brb.loan_management_system.entity.History;
@@ -47,6 +48,7 @@ public class HistoryServiceImpl implements HistoryService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getAllHistory(Long loanId) {
         Specification<History> spec = (root, q, cb) -> {
             List<Predicate> predicates = new ArrayList<>();

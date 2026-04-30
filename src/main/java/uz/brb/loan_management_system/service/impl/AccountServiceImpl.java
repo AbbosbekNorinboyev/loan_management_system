@@ -54,6 +54,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getAccount(Long accountId) {
         Account account = accountRepository.findById(accountId)
                 .orElseThrow(() -> new ResourceNotFoundException("Account not found: " + accountId));
@@ -67,6 +68,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getAllAccount() {
         List<Account> accounts = accountRepository.findAll();
         logger.info("Account list successfully found");
@@ -95,6 +97,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Response getAccountsGroupedByTypeStats(AccountType accountType) {
         String accountTypeString = accountType != null ? accountType.name() : null;
         List<Object[]> rawResults = accountRepository.findAccountByAccountType(accountTypeString);
